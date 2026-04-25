@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slay Entertainment — Boutique performance agency</title>
+<title>Slay Entertainment — Premium Performance Agency Sydney</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -66,6 +66,17 @@ a{text-decoration:none;color:inherit;}
   position:absolute;inset:0;z-index:2;
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:36px 40px;
+}
+.hero-copy-box{
+  background:rgba(8,8,16,0.55);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  border-left:2px solid rgba(240,0,128,0.6);
+  padding:20px 22px;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+  max-width:100%;
 }
 .hero-eyebrow{font-size:14px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:10px;}
 .hero-title{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:30px;letter-spacing:0.02em;line-height:1.1;color:var(--white);margin-bottom:8px;}
@@ -195,14 +206,14 @@ a{text-decoration:none;color:inherit;}
 }
 .trust-item{text-align:center;flex:1;min-width:100px;border-right:1px solid rgba(168,134,74,0.15);padding:8px 12px;}
 .trust-item:last-child{border-right:none;}
-.trust-val{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:26px;color:var(--magenta);display:block;line-height:1;margin-bottom:5px;}
+.trust-val{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:52px;color:var(--magenta);display:block;line-height:1;margin-bottom:8px;}
 .trust-label{font-size:13px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--chrome);line-height:1.5;}
 
 @media(max-width:768px){
   .trust-bar{padding:16px 24px;}
   .trust-item{min-width:calc(33% - 8px);padding:10px 6px;border-right:none;border-bottom:1px solid rgba(168,134,74,0.15);}
   .trust-item:nth-child(3n){border-right:none;}
-  .trust-val{font-size:22px;}
+  .trust-val{font-size:42px;}
 }
 
 /* ── CORPORATE SECTION ── */
@@ -300,14 +311,20 @@ a{text-decoration:none;color:inherit;}
 .footer-contact a{color:var(--brass-lt);transition:color .2s;}
 .footer-contact a:hover{color:var(--magenta);}
 .footer-cities{font-size:13px;font-weight:300;letter-spacing:0.2em;color:var(--mist);text-transform:uppercase;text-align:right;line-height:2.2;}
-.footer-credits{font-family:"Montserrat",sans-serif;font-weight:300;font-size:11px;letter-spacing:0.15em;color:var(--mist);text-align:center;line-height:2;width:100%;}
-.footer-credits a{color:var(--brass-lt);text-decoration:none;transition:color .2s;}
-.footer-credits a:hover{color:var(--magenta);}
 
 @media(max-width:768px){
   .footer{padding:24px;flex-direction:column;text-align:center;}
   .footer-cities,.footer-contact{text-align:center;}
   .sticky-btn{font-size:8.5px;padding:14px 20px;right:16px;bottom:16px;}
+}
+
+/* ── MOBILE PACKAGE GALLERY ── */
+@media(max-width:768px){
+  .pkg-gallery-top{grid-template-columns:1fr !important;}
+  .pkg-gallery-top > div{height:260px !important;}
+  .pkg-gallery-bot{grid-template-columns:1fr !important;}
+  .pkg-gallery-bot > div{height:200px !important;}
+  .pkg-gallery-cta{height:auto !important;padding:28px 24px !important;}
 }
 </style>
 </head>
@@ -333,10 +350,12 @@ a{text-decoration:none;color:inherit;}
   <a href="#nightlife" class="hero-half hero-night">
     <img src="images/hero-nightlife.jpg" alt="Nightlife performance entertainment Sydney">
     <div class="hero-content">
-      <div class="hero-eyebrow">Nightlife &amp; Events</div>
-      <div class="hero-title">The performance that turns a good night into an unforgettable one</div>
-      <div class="hero-sub">Club residencies · Venue entertainment<br>LED · UV · Fan dance · Burlesque</div>
-      <span class="hero-cta hero-cta-night">Explore Nightlife</span>
+      <div class="hero-copy-box">
+        <div class="hero-eyebrow">Nightlife &amp; Events</div>
+        <div class="hero-title">The act they'll still be talking about tomorrow</div>
+        <div class="hero-sub">Club residencies · Venue entertainment<br>LED · UV · Fan dance · Burlesque</div>
+        <span class="hero-cta hero-cta-night">Explore Nightlife</span>
+      </div>
     </div>
   </a>
 
@@ -353,10 +372,12 @@ a{text-decoration:none;color:inherit;}
   <a href="#corporate" class="hero-half hero-corp">
     <img src="images/hero-corporate.jpg" alt="Corporate entertainment and brand activation Sydney">
     <div class="hero-content">
-      <div class="hero-eyebrow">Corporate &amp; Brand</div>
-      <div class="hero-title">Entertainment that earns its place in your event budget</div>
-      <div class="hero-sub">Product launches · Gala dinners<br>Race day · Brand activations</div>
-      <span class="hero-cta hero-cta-corp">Explore Corporate</span>
+      <div class="hero-copy-box" style="border-left-color:rgba(168,134,74,0.7);">
+        <div class="hero-eyebrow">Corporate &amp; Brand</div>
+        <div class="hero-title">Entertainment that earns its place in your event budget</div>
+        <div class="hero-sub">Product launches · Gala dinners<br>Race day · Brand activations</div>
+        <span class="hero-cta hero-cta-corp">Explore Corporate</span>
+      </div>
     </div>
   </a>
 
@@ -390,7 +411,7 @@ a{text-decoration:none;color:inherit;}
           <span class="pkg-num">01</span>
           <div>
             <div class="pkg-name-dk">Neon Nightlife</div>
-            <div class="pkg-desc-dk">High-energy UV and LED performance that owns the dancefloor and holds a crowd from first set to last call.</div>
+            <div class="pkg-desc-dk">High-voltage UV and LED performance that owns the dancefloor and holds a crowd from first set to last call.</div>
           </div>
         </div>
         <div class="pkg-item">
@@ -465,7 +486,7 @@ a{text-decoration:none;color:inherit;}
     <div style="font-size:15px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--brass);margin-bottom:10px;">All Packages</div>
     <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:38px;color:var(--white);line-height:1.05;">Every event deserves its own spectacle</div>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
+  <div class="pkg-gallery-top" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
 
     <div style="position:relative;overflow:hidden;border-radius:4px;cursor:pointer;" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">
       <img src="images/hero-nightlife.jpg" alt="Neon Nightlife" style="width:100%;height:320px;object-fit:cover;object-position:center top;transition:transform .6s ease;">
@@ -510,7 +531,7 @@ a{text-decoration:none;color:inherit;}
   </div>
 
   <!-- second row: BW stripe + red velvet + CTA -->
-  <div style="display:grid;grid-template-columns:1fr 1fr 2fr;gap:12px;margin-top:12px;">
+  <div class="pkg-gallery-bot" style="display:grid;grid-template-columns:1fr 1fr 2fr;gap:12px;margin-top:12px;">
 
     <div style="position:relative;overflow:hidden;border-radius:4px;cursor:pointer;" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">
       <img src="images/section-nightlife.jpg" alt="Carnival Cirque" style="width:100%;height:220px;object-fit:cover;object-position:center 20%;transition:transform .6s ease;">
@@ -531,7 +552,7 @@ a{text-decoration:none;color:inherit;}
     </div>
 
     <!-- CTA card -->
-    <div style="background:var(--magenta);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;height:220px;">
+    <div class="pkg-gallery-cta" style="background:var(--magenta);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;height:220px;">
       <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;color:#fff;line-height:1.1;margin-bottom:12px;">Not sure which package?</div>
       <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.85);letter-spacing:0.12em;line-height:1.7;margin-bottom:20px;">Tell us about your event and we'll recommend the right act for the atmosphere you want.</div>
       <a href="#enquiry" style="display:inline-block;border:1.5px solid #fff;padding:12px 28px;font-size:9px;font-weight:900;letter-spacing:0.4em;text-transform:uppercase;color:#fff;transition:all .2s;">Check Availability</a>
@@ -548,15 +569,9 @@ a{text-decoration:none;color:inherit;}
     </div>
     <div>
       <div class="section-eyebrow" style="color:var(--brass);">Corporate &amp; Brand</div>
-      <div class="section-title" style="color:var(--near-black);">Elevate your brand. Make your event unforgettable.</div>
+      <div class="section-title" style="color:var(--near-black);">Performance your guests will remember long after the event</div>
       <div class="rule-brass"></div>
-      <div class="section-body" style="color:var(--slate);max-width:480px;">Slay Entertainment elevates your corporate function 
-into a brand experience guests remember long after 
-the event. From product launches to race day 
-activations, our costumed performers engage guests, 
-create photo moments, distribute merchandise and 
-embody your brand identity — every detail tailored 
-to your brief and designed to leave a lasting impression.</div>
+      <div class="section-body" style="color:var(--slate);max-width:480px;">From a product launch that needs spectacle to a race day activation that demands attention, Slay Entertainment delivers bespoke performance precisely tailored to your brief. Custom costuming, full creative direction, and a single point of contact from brief to curtain call.</div>
 
       <div class="pkg-list">
         <div class="pkg-item pkg-item-lt">
@@ -602,10 +617,7 @@ to your brief and designed to leave a lasting impression.</div>
 <div class="proof-section">
   <div class="proof-eyebrow">What Clients Say</div>
   <div class="proof-rule"></div>
-  <div class="proof-quote">"Our guests didn't want the night to end. Slay brought an 
-energy to the room that our regular nights just don't have 
-— we've already locked in a regular booking."
-— Venue Manager · Sydney</div>
+  <div class="proof-quote">"The performance completely transformed the atmosphere. Our guests were captivated from the first set — exactly the energy we needed for our brand launch."</div>
   <div class="proof-attr">— Corporate Event Client · Sydney</div>
   <div class="venue-strip">
     <span class="venue-tag">Corporate Galas</span>
@@ -632,7 +644,7 @@ energy to the room that our regular nights just don't have
     </div>
     <div class="faq-item">
       <div class="faq-q">What's included in each package?</div>
-      <div class="faq-a">Every booking includes custom costuming, a pre-event brief and run sheet, direct coordination with Abira, and choreographed performance depending on client needs. All performers are ABN registered and Slay holds public liability insurance.</div>
+      <div class="faq-a">Every booking includes custom costuming, a pre-event brief and run sheet, direct coordination with Abira, and fully choreographed performance. All performers are ABN registered and covered by public liability insurance.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you perform outside Sydney?</div>
@@ -717,13 +729,9 @@ energy to the room that our regular nights just don't have
   <div class="footer-logo"><span>SLAY</span> ENTERTAINMENT<small>Boutique Performance Agency</small></div>
   <div class="footer-contact">
     <a href="mailto:slayentertainmentco@gmail.com">slayentertainmentco@gmail.com</a><br>
-    <a href="https://instagram.com/slayentertainmentco">@slayentertainment</a>
+    <a href="https://instagram.com/slayentertainment">@slayentertainment</a>
   </div>
   <div class="footer-cities">Sydney · Brisbane<br>Sunshine Coast · Bali</div>
-  <div class="footer-credits">
-    <div>Creative direction &amp; business concept: <a href="https://www.instagram.com/abiraharvey/" target="_blank" rel="noopener">Abira Harvey</a></div>
-    <div>Conceived and developed by <a href="https://www.linkedin.com/in/nicolakharvey/" target="_blank" rel="noopener">Nicola Harvey</a> &nbsp;·&nbsp; AI-assisted design &nbsp;·&nbsp; Development</div>
-  </div>
 </footer>
 
 </body>
