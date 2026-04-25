@@ -195,7 +195,11 @@ a{text-decoration:none;color:inherit;}
 .pkg-item-lt:last-child{border-bottom:none;}
 .pkg-num{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:13px;color:var(--brass);width:20px;flex-shrink:0;padding-top:1px;}
 .pkg-name-dk{font-size:12.5px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.pkg-name-dk a{color:var(--white);transition:color .2s;}
+.pkg-name-dk a:hover{color:var(--magenta);}
 .pkg-name-lt{font-size:12.5px;font-weight:700;color:var(--near-black);margin-bottom:4px;}
+.pkg-name-lt a{color:var(--near-black);transition:color .2s;}
+.pkg-name-lt a:hover{color:var(--magenta);}
 .pkg-desc-dk{font-size:12px;font-weight:300;letter-spacing:0.05em;color:var(--chrome);line-height:1.7;}
 .pkg-desc-lt{font-size:12px;font-weight:300;letter-spacing:0.05em;color:var(--slate);line-height:1.7;}
 
@@ -348,6 +352,7 @@ a{text-decoration:none;color:inherit;}
   <div class="nav-links">
     <a href="#nightlife" class="nav-link">Nightlife</a>
     <a href="#corporate" class="nav-link">Corporate</a>
+    <a href="/packages" class="nav-link">Packages</a>
     <a href="#faq" class="nav-link">FAQ</a>
     <a href="#enquiry" class="nav-link">Book</a>
   </div>
@@ -422,28 +427,28 @@ a{text-decoration:none;color:inherit;}
         <div class="pkg-item">
           <span class="pkg-num">01</span>
           <div>
-            <div class="pkg-name-dk">Neon Nightlife</div>
+            <div class="pkg-name-dk"><a href="/packages?package=Neon+Nightlife#neon-nightlife">Neon Nightlife</a></div>
             <div class="pkg-desc-dk">High-energy UV and LED performance that owns the dancefloor and holds a crowd from first set to last call.</div>
           </div>
         </div>
         <div class="pkg-item">
           <span class="pkg-num">02</span>
           <div>
-            <div class="pkg-name-dk">Vegas Showgirl</div>
+            <div class="pkg-name-dk"><a href="/packages?package=Vegas+Showgirl#vegas-showgirl">Vegas Showgirl</a></div>
             <div class="pkg-desc-dk">Gold sequin glamour and feather fan spectacle that commands the room and gives guests a moment worth photographing.</div>
           </div>
         </div>
         <div class="pkg-item">
           <span class="pkg-num">03</span>
           <div>
-            <div class="pkg-name-dk">Fan Dancers</div>
+            <div class="pkg-name-dk"><a href="/packages?package=Fan+Dancers#fan-dancers">Fan Dancers</a></div>
             <div class="pkg-desc-dk">Psychedelic silk fan artistry for festival stages, rooftops, and late-night venues that want something visually arresting.</div>
           </div>
         </div>
         <div class="pkg-item">
           <span class="pkg-num">04</span>
           <div>
-            <div class="pkg-name-dk">Carnival / Cirque</div>
+            <div class="pkg-name-dk"><a href="/packages?package=Carnival+%2F+Cirque#carnival-cirque">Carnival / Cirque</a></div>
             <div class="pkg-desc-dk">Roving theatrical entertainment that keeps energy moving across the whole venue all night.</div>
           </div>
         </div>
@@ -505,7 +510,7 @@ a{text-decoration:none;color:inherit;}
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,16,0.9) 0%,rgba(8,8,16,0.2) 60%,transparent 100%);"></div>
       <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 18px;">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:6px;">Nightlife</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;color:var(--white);line-height:1.1;margin-bottom:8px;">Neon Nightlife</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;color:var(--white);line-height:1.1;margin-bottom:8px;"><a href="/packages?package=Neon+Nightlife#neon-nightlife" style="color:var(--white);transition:color .2s;" onmouseover="this.style.color='#F00080'" onmouseout="this.style.color='var(--white)'">Neon Nightlife</a></div>
         <div style="font-size:10px;font-weight:300;color:var(--chrome);line-height:1.5;">UV · LED · Podium · Club</div>
       </div>
     </div>
@@ -585,28 +590,28 @@ a{text-decoration:none;color:inherit;}
         <div class="pkg-item pkg-item-lt">
           <span class="pkg-num">01</span>
           <div>
-            <div class="pkg-name-lt">Vegas Showgirl</div>
+            <div class="pkg-name-lt"><a href="/packages?package=Vegas+Showgirl#vegas-showgirl">Vegas Showgirl</a></div>
             <div class="pkg-desc-lt">Feather-fan glamour and gold sequin elegance for galas, award nights, and high-end hospitality that requires presence.</div>
           </div>
         </div>
         <div class="pkg-item pkg-item-lt">
           <span class="pkg-num">02</span>
           <div>
-            <div class="pkg-name-lt">Race Day Activation</div>
+            <div class="pkg-name-lt"><a href="/packages?package=Race+Day#race-day">Race Day Activation</a></div>
             <div class="pkg-desc-lt">Costumed choreographed performance with Ducati display for motorsport events, dealership launches, and automotive brand work.</div>
           </div>
         </div>
         <div class="pkg-item pkg-item-lt">
           <span class="pkg-num">03</span>
           <div>
-            <div class="pkg-name-lt">Carnival / Cirque</div>
+            <div class="pkg-name-lt"><a href="/packages?package=Carnival+%2F+Cirque#carnival-cirque">Carnival / Cirque</a></div>
             <div class="pkg-desc-lt">Roving entertainment for product launches, end-of-year events, and activations where the atmosphere needs to move with the crowd.</div>
           </div>
         </div>
         <div class="pkg-item pkg-item-lt">
           <span class="pkg-num">04</span>
           <div>
-            <div class="pkg-name-lt">Fan Dancers</div>
+            <div class="pkg-name-lt"><a href="/packages?package=Fan+Dancers#fan-dancers">Fan Dancers</a></div>
             <div class="pkg-desc-lt">Silk fan artistry for outdoor activations, daytime brand events, and summer launches that want energy without the nightclub aesthetic.</div>
           </div>
         </div>
