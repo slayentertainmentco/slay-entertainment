@@ -779,6 +779,38 @@ a{text-decoration:none;color:inherit;}
   const params = new URLSearchParams(window.location.search);
   const pkg = params.get('package');
 
+  // Scroll helper used by both code paths
+  function scrollToEnquiry() {
+    const section = document.getElementById('enquiry');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  const discount = params.get('discount');
+
+  // Handle ?discount=launch (from Claim Launch Pricing button)
+  if (discount === 'launch' && !pkg) {
+    const banner = document.getElementById('package-banner-wrap');
+    const bannerName = document.getElementById('package-banner-name');
+    if (banner && bannerName) {
+      bannerName.textContent = 'All Packages — 15% Launch Discount';
+      banner.style.display = 'block';
+    }
+    const pkgField = document.getElementById('package-field');
+    if (pkgField) pkgField.value = 'Launch Pricing Claim';
+    const textarea = document.querySelector('textarea[name="message"]');
+    if (textarea) {
+      textarea.value = "I'd like to claim the 15% launch pricing discount. ";
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { setTimeout(scrollToEnquiry, 200); });
+    } else {
+      setTimeout(scrollToEnquiry, 200);
+    }
+    return;
+  }
+
   if (!pkg) return;
 
   // Decode: replace + with space then decode URI components
@@ -803,18 +835,8 @@ a{text-decoration:none;color:inherit;}
   }
 
   // 4. Scroll to enquiry form
-  // Use both DOMContentLoaded and a timeout fallback to handle page load timing
-  function scrollToEnquiry() {
-    const section = document.getElementById('enquiry');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(scrollToEnquiry, 200);
-    });
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(scrollToEnquiry, 200); });
   } else {
     setTimeout(scrollToEnquiry, 200);
   }
