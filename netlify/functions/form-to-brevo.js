@@ -7,21 +7,20 @@ exports.handler = async function (event) {
     const BREVO_API_KEY = process.env.BREVO_API_KEY;
     const CONFIRMATION_TEMPLATE_ID = 2;
 
-    // Map event-type values to Brevo list IDs
-    // Replace these numbers with your actual list IDs from Brevo → Contacts → Lists
-    const EVENT_TYPE_LISTS = {
-      "Corporate event or gala":            3,
-      "Brand activation":                   4,
-      "Nightclub or venue booking":         5,
-      "Race day or motorsport event":       6,
-      "Hens party":                         7,
-      "Wedding":                            8,
-      "Festival or outdoor event":          9,
-      "Private event":                      10,
-      "Not sure yet — happy to discuss":    11
-    };
+    // Brevo list IDs from your account
+    const NEW_ENQUIRY_LIST_ID = 2; // Enquiries - New
 
-    const NEW_ENQUIRY_LIST_ID = 2; // Your "Enquiries - New" list ID
+    const EVENT_TYPE_LISTS = {
+      "Corporate event or gala":          3,  // Enquiries - Corporate
+      "Nightclub or venue booking":       4,  // Enquiries - Nightclub
+      "Race day or motorsport event":     5,  // Enquiries - Race Day
+      "Hens party":                       6,  // Enquiries - Hens
+      "Wedding":                          7,  // Enquiries - Wedding
+      "Festival or outdoor event":        8,  // Enquiries - Festival
+      "Private event":                    9,  // Enquiries - Private
+      "Brand activation":                 10, // Enquiries - Brand Activation
+      "Not sure yet — happy to discuss":  2   // Falls back to Enquiries - New only
+    };
 
     // Parse form fields from Netlify's URL-encoded POST body
     const params = new URLSearchParams(event.body);
@@ -39,10 +38,11 @@ exports.handler = async function (event) {
     const firstName = name.split(" ")[0] || name;
     const lastName  = name.split(" ").slice(1).join(" ") || "";
 
-    // Always add to "Enquiries - New", plus the matching event type list
+    // Always add to Enquiries - New, plus event type list if different
     const listIds = [NEW_ENQUIRY_LIST_ID];
-    if (EVENT_TYPE_LISTS[eventType]) {
-      listIds.push(EVENT_TYPE_LISTS[eventType]);
+    const eventListId = EVENT_TYPE_LISTS[eventType];
+    if (eventListId && eventListId !== NEW_ENQUIRY_LIST_ID) {
+      listIds.push(eventListId);
     }
 
     // 1. Create or update contact in Brevo
