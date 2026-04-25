@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquiry Received — Slay Entertainment</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080810;--magenta:#F00080;--brass:#A8864A;--brass-lt:#C4A96A;
+  --white:#F5F0FF;--chrome:#C4C4D8;--cream:#F8F5EE;
+  --near-black:#0C0C14;--slate:#4A4A5A;--mist:#8A8A9A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:"Montserrat",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+ 
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(8,8,16,0.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,134,74,0.2);
+  padding:0 32px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;}
+.nav-logo span{color:var(--magenta);}
+.nav-logo small{font-family:"Montserrat",sans-serif;font-weight:300;font-size:11px;letter-spacing:0.25em;color:var(--chrome);display:block;margin-top:2px;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-link{font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--chrome);transition:color .2s;}
+.nav-link:hover{color:var(--brass-lt);}
+ 
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes expandWidth{from{width:0;}to{width:48px;}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,0,128,0.4);}50%{box-shadow:0 0 0 12px rgba(240,0,128,0);}}
+ 
+.fade-up{opacity:0;animation:fadeUp .7s ease forwards;}
+.delay-1{animation-delay:.15s;}
+.delay-2{animation-delay:.3s;}
+.delay-3{animation-delay:.45s;}
+.delay-4{animation-delay:.6s;}
+.delay-5{animation-delay:.75s;}
+.delay-6{animation-delay:.9s;}
+ 
+/* ── HERO CONFIRMATION ── */
+.confirm-hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:100px 24px 60px;
+  position:relative;
+  overflow:hidden;
+}
+.confirm-hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(240,0,128,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+ 
+/* Animated grid lines */
+.confirm-hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(168,134,74,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,134,74,0.04) 1px, transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+}
+ 
+.confirm-inner{
+  max-width:680px;width:100%;text-align:center;
+  position:relative;z-index:2;
+}
+ 
+/* Check mark */
+.check-wrap{
+  width:72px;height:72px;border-radius:50%;
+  border:1.5px solid var(--magenta);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 32px;
+  animation:fadeUp .6s ease forwards, pulse 2.5s ease 1s infinite;
+}
+.check-icon{
+  width:28px;height:28px;
+  stroke:var(--magenta);fill:none;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+ 
+.confirm-eyebrow{
+  font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:20px;
+}
+.confirm-title{
+  font-family:"Cormorant Garamond",serif;font-weight:700;
+  font-size:clamp(36px,6vw,62px);letter-spacing:0.03em;
+  line-height:1.05;color:var(--white);margin-bottom:24px;
+}
+.confirm-title em{color:var(--magenta);font-style:italic;}
+ 
+.brass-rule{
+  width:0;height:1px;background:var(--brass);
+  margin:0 auto 28px;
+  animation:expandWidth .6s ease .5s forwards;
+}
+ 
+.confirm-body{
+  font-size:15px;font-weight:300;line-height:1.8;
+  color:var(--chrome);max-width:480px;margin:0 auto 40px;
+}
+.confirm-body strong{color:var(--white);font-weight:600;}
+ 
+/* 24hr badge */
+.hour-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(168,134,74,0.3);
+  background:rgba(168,134,74,0.06);
+  padding:12px 24px;margin-bottom:48px;
+}
+.hour-badge-num{
+  font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:700;
+  color:var(--brass-lt);line-height:1;
+}
+.hour-badge-text{
+  font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--mist);line-height:1.4;text-align:left;
+}
+ 
+/* Instagram CTA */
+.ig-cta{
+  display:inline-flex;align-items:center;gap:14px;
+  background:rgba(240,0,128,0.08);
+  border:1.5px solid var(--magenta);
+  padding:16px 32px;
+  transition:all .25s;cursor:pointer;
+}
+.ig-cta:hover{background:var(--magenta);transform:translateY(-2px);box-shadow:0 8px 32px rgba(240,0,128,0.35);}
+.ig-cta svg{width:20px;height:20px;stroke:var(--magenta);fill:none;stroke-width:1.5;transition:stroke .25s;}
+.ig-cta:hover svg{stroke:#fff;}
+.ig-cta-text{font-size:10px;font-weight:900;letter-spacing:0.35em;text-transform:uppercase;color:var(--magenta);transition:color .25s;}
+.ig-cta:hover .ig-cta-text{color:#fff;}
+ 
+/* ── PACKAGES SECTION ── */
+.packages-section{
+  padding:80px 24px 100px;
+  border-top:1px solid rgba(168,134,74,0.15);
+  position:relative;
+}
+.packages-section::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:1px;height:60px;background:linear-gradient(var(--brass),transparent);
+}
+ 
+.section-eyebrow{
+  font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--brass);text-align:center;margin-bottom:16px;
+}
+.section-title{
+  font-family:"Cormorant Garamond",serif;font-weight:700;
+  font-size:clamp(28px,4vw,42px);letter-spacing:0.04em;
+  text-align:center;color:var(--white);margin-bottom:12px;
+}
+.section-sub{
+  font-size:13px;font-weight:300;color:var(--mist);
+  text-align:center;letter-spacing:0.05em;margin-bottom:56px;
+}
+ 
+.pkg-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  max-width:1100px;margin:0 auto 56px;
+  background:rgba(168,134,74,0.12);
+}
+.pkg-card{
+  background:var(--near-black);
+  padding:32px 28px 28px;
+  position:relative;overflow:hidden;
+  transition:background .25s;cursor:default;
+}
+.pkg-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--magenta);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s ease;
+}
+.pkg-card:hover{background:#111120;}
+.pkg-card:hover::before{transform:scaleX(1);}
+ 
+.pkg-num{
+  font-family:"Cormorant Garamond",serif;font-size:13px;font-weight:700;
+  color:rgba(168,134,74,0.4);letter-spacing:0.2em;margin-bottom:16px;display:block;
+}
+.pkg-name{
+  font-family:"Cormorant Garamond",serif;font-weight:700;font-size:20px;
+  letter-spacing:0.04em;color:var(--white);margin-bottom:8px;line-height:1.2;
+}
+.pkg-tag{
+  font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--magenta);margin-bottom:14px;display:block;
+}
+.pkg-desc{
+  font-size:12px;font-weight:300;line-height:1.7;
+  color:var(--chrome);
+}
+ 
+/* packages CTA */
+.packages-cta-wrap{text-align:center;}
+.btn-packages{
+  display:inline-block;
+  font-size:10px;font-weight:900;letter-spacing:0.4em;text-transform:uppercase;
+  border:1.5px solid var(--brass);color:var(--brass-lt);
+  padding:16px 40px;margin-right:16px;
+  transition:all .25s;
+}
+.btn-packages:hover{background:var(--brass);color:var(--black);}
+.btn-enquiry{
+  display:inline-block;
+  font-size:10px;font-weight:900;letter-spacing:0.4em;text-transform:uppercase;
+  background:var(--magenta);color:#fff;
+  padding:16px 40px;
+  transition:all .25s;
+  box-shadow:0 4px 24px rgba(240,0,128,0.3);
+}
+.btn-enquiry:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(240,0,128,0.5);}
+ 
+/* ── FOOTER ── */
+.footer{
+  border-top:1px solid rgba(168,134,74,0.15);
+  padding:40px 32px;
+  display:flex;flex-wrap:wrap;gap:24px;
+  align-items:center;justify-content:space-between;
+}
+.footer-logo{
+  font-family:"Cormorant Garamond",serif;font-weight:700;
+  font-size:15px;letter-spacing:0.2em;text-transform:uppercase;
+}
+.footer-logo span{color:var(--magenta);}
+.footer-logo small{font-family:"Montserrat",sans-serif;font-weight:300;font-size:10px;letter-spacing:0.25em;color:var(--chrome);display:block;margin-top:2px;}
+.footer-contact{font-size:12px;font-weight:300;color:var(--mist);line-height:1.8;}
+.footer-contact a:hover{color:var(--brass-lt);}
+.footer-cities{font-size:11px;font-weight:300;letter-spacing:0.1em;color:var(--slate);line-height:1.8;}
+.footer-credits{font-size:10px;font-weight:300;color:var(--slate);line-height:1.8;width:100%;border-top:1px solid rgba(168,134,74,0.1);padding-top:20px;}
+.footer-credits a{color:var(--mist);transition:color .2s;}
+.footer-credits a:hover{color:var(--brass-lt);}
+ 
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .pkg-grid{grid-template-columns:1fr 1fr;}
+  .nav-links .nav-link:not(:last-child){display:none;}
+  .btn-packages{margin-right:0;margin-bottom:12px;display:block;}
+  .btn-enquiry{display:block;}
+  .packages-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;}
+}
+@media(max-width:480px){
+  .pkg-grid{grid-template-columns:1fr;}
+  .hour-badge{flex-direction:column;text-align:center;}
+  .hour-badge-text{text-align:center;}
+}
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <span>SLAY</span> ENTERTAINMENT
+    <small>Boutique Performance Agency</small>
+  </a>
+  <div class="nav-links">
+    <a href="/#nightlife" class="nav-link">Nightlife</a>
+    <a href="/#corporate" class="nav-link">Corporate</a>
+    <a href="/#enquiry" class="nav-link">Book</a>
+  </div>
+</nav>
+ 
+<!-- CONFIRMATION HERO -->
+<section class="confirm-hero">
+  <div class="confirm-inner">
+ 
+    <!-- Check circle -->
+    <div class="check-wrap">
+      <svg class="check-icon" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+ 
+    <p class="confirm-eyebrow fade-up delay-1">Enquiry Received</p>
+ 
+    <h1 class="confirm-title fade-up delay-2">
+      We've got your<br><em>enquiry.</em>
+    </h1>
+ 
+    <div class="brass-rule"></div>
+ 
+    <p class="confirm-body fade-up delay-3">
+      Every event we're part of matters deeply to us — and yours is no exception. We know how much thought goes into making it unforgettable, and we're genuinely <strong>thrilled you chose Slay</strong> to be part of it. Abira will be in touch personally with everything you need.
+    </p>
+ 
+    <!-- 24hr badge -->
+    <div class="hour-badge fade-up delay-4">
+      <div class="hour-badge-num">24</div>
+      <div class="hour-badge-text">Hours or less<br>to your proposal</div>
+    </div>
+ 
+    <!-- Instagram CTA -->
+    <div class="fade-up delay-5">
+      <p style="font-size:11px;font-weight:300;letter-spacing:0.1em;color:var(--mist);margin-bottom:16px;">
+        While you wait — follow along for performance previews and behind the scenes
+      </p>
+      <a href="https://instagram.com/slayentertainmentco" target="_blank" rel="noopener" class="ig-cta">
+        <!-- Instagram icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <span class="ig-cta-text">@slayentertainmentco</span>
+      </a>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- PACKAGES PREVIEW -->
+<section class="packages-section">
+ 
+  <p class="section-eyebrow">What We Do</p>
+  <h2 class="section-title">Every Event Has Its Spectacle</h2>
+  <p class="section-sub">Six signature packages — each choreographed, costumed, and directed by Abira</p>
+ 
+  <div class="pkg-grid">
+ 
+    <div class="pkg-card">
+      <span class="pkg-num">01</span>
+      <div class="pkg-name">Neon Nightlife</div>
+      <span class="pkg-tag">UV · LED · Podium · Club</span>
+      <p class="pkg-desc">High-energy UV and LED performance that owns the dancefloor and holds a crowd from first set to last call. Club residencies, venue entertainment, weekly bookings.</p>
+    </div>
+ 
+    <div class="pkg-card">
+      <span class="pkg-num">02</span>
+      <div class="pkg-name">Vegas Showgirl</div>
+      <span class="pkg-tag">Rhinestone · Feather Fans · Gala</span>
+      <p class="pkg-desc">Gold sequin glamour and ostrich feather fan spectacle for galas, award nights, and high-end hospitality that commands the room.</p>
+    </div>
+ 
+    <div class="pkg-card">
+      <span class="pkg-num">03</span>
+      <div class="pkg-name">Race Day</div>
+      <span class="pkg-tag">Motorsport · Ducati · Brand Activation</span>
+      <p class="pkg-desc">Costumed choreographed performance with Ducati static display for motorsport events, dealership launches, and automotive brand activations.</p>
+    </div>
+ 
+    <div class="pkg-card">
+      <span class="pkg-num">04</span>
+      <div class="pkg-name">Carnival / Cirque</div>
+      <span class="pkg-tag">Roving · Theatre · Events</span>
+      <p class="pkg-desc">Theatrical roving entertainment that keeps energy moving across the whole venue. Product launches, end-of-year events, activations.</p>
+    </div>
+ 
+    <div class="pkg-card">
+      <span class="pkg-num">05</span>
+      <div class="pkg-name">Burlesque & Glamour</div>
+      <span class="pkg-tag">Adults Only · Private · Hens</span>
+      <p class="pkg-desc">Choreographed burlesque featuring feather fans, opera gloves, and signature reveal moments. Hens parties, yacht events, private functions.</p>
+    </div>
+ 
+    <div class="pkg-card">
+      <span class="pkg-num">06</span>
+      <div class="pkg-name">Fan Dancers</div>
+      <span class="pkg-tag">Silk Fans · Festival · Outdoor</span>
+      <p class="pkg-desc">Psychedelic silk fan artistry for festival stages, rooftops, pool parties, and summer brand activations that want energy without the nightclub aesthetic.</p>
+    </div>
+ 
+  </div>
+ 
+  <div class="packages-cta-wrap">
+    <a href="/packages" class="btn-packages">View Full Packages</a>
+    <a href="/#enquiry" class="btn-enquiry">Submit Another Enquiry</a>
+  </div>
+ 
+</section>
+ 
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo"><span>SLAY</span> ENTERTAINMENT<small>Boutique Performance Agency</small></div>
+  <div class="footer-contact">
+    <a href="mailto:hello@slayentertainment.co">hello@slayentertainment.co</a><br>
+    <a href="https://instagram.com/slayentertainmentco">@slayentertainmentco</a>
+  </div>
+  <div class="footer-cities">Sydney · Brisbane<br>Sunshine Coast · Bali</div>
+  <div class="footer-credits">
+    <div>Creative direction &amp; business concept: <a href="https://www.instagram.com/abiraharvey/" target="_blank" rel="noopener">Abira Harvey</a></div>
+    <div>Conceived and developed by <a href="https://www.linkedin.com/in/nicolakharvey/" target="_blank" rel="noopener">Nicola Harvey</a> &nbsp;·&nbsp; AI-assisted design &nbsp;·&nbsp; Development</div>
+  </div>
+</footer>
+ 
+</body>
+</html>
