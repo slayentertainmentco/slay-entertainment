@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages — Slay Entertainment · Boutique Performance Agency Sydney</title>
+<meta name="description" content="Six signature performance packages for nightclubs, corporate events, brand activations, hens parties and festivals. Sydney, Brisbane, Sunshine Coast and Bali.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080810;--magenta:#F00080;--brass:#A8864A;--brass-lt:#C4A96A;
+  --white:#F5F0FF;--chrome:#C4C4D8;--cream:#F8F5EE;
+  --near-black:#0C0C14;--slate:#4A4A5A;--mist:#8A8A9A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:"Montserrat",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(8,8,16,0.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,134,74,0.2);
+  padding:0 32px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;}
+.nav-logo span{color:var(--magenta);}
+.nav-logo small{font-family:"Montserrat",sans-serif;font-weight:300;font-size:11px;letter-spacing:0.25em;color:var(--chrome);display:block;margin-top:2px;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-link{font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--chrome);transition:color .2s;}
+.nav-link:hover{color:var(--brass-lt);}
+.nav-link-cta{background:var(--magenta);color:#fff;padding:10px 20px;font-size:10px;font-weight:900;letter-spacing:0.3em;transition:all .2s;}
+.nav-link-cta:hover{background:#d00070;color:#fff;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes expandW{from{width:0;}to{width:48px;}}
+.fade-up{opacity:0;animation:fadeUp .7s ease forwards;}
+.d1{animation-delay:.1s;}.d2{animation-delay:.25s;}.d3{animation-delay:.4s;}.d4{animation-delay:.55s;}
+
+/* ── HERO ── */
+.hero{
+  min-height:52vh;padding-top:60px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  background:var(--near-black);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(240,0,128,0.07) 0%,transparent 70%);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(168,134,74,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(168,134,74,0.03) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:60px 24px;}
+
+.launch-ribbon{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(240,0,128,0.1);border:1px solid rgba(240,0,128,0.4);
+  padding:8px 20px;margin-bottom:28px;
+}
+.launch-ribbon-dot{width:6px;height:6px;background:var(--magenta);border-radius:50%;animation:pulse 1.5s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.launch-ribbon-text{font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--magenta);}
+
+.hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--brass);margin-bottom:16px;}
+.hero-title{
+  font-family:"Cormorant Garamond",serif;font-weight:700;
+  font-size:clamp(40px,6vw,68px);letter-spacing:0.04em;line-height:1.0;
+  color:var(--white);margin-bottom:20px;
+}
+.hero-title em{color:var(--magenta);font-style:italic;}
+.hero-sub{font-size:14px;font-weight:300;line-height:1.8;color:var(--chrome);max-width:520px;margin:0 auto 32px;}
+
+.hero-stats{
+  display:flex;gap:0;justify-content:center;
+  border:1px solid rgba(168,134,74,0.2);display:inline-flex;
+}
+.hero-stat{padding:14px 28px;border-right:1px solid rgba(168,134,74,0.15);}
+.hero-stat:last-child{border-right:none;}
+.hero-stat-val{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:700;color:var(--white);}
+.hero-stat-label{font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);margin-top:2px;}
+
+/* ── LAUNCH BANNER ── */
+.launch-banner{
+  background:linear-gradient(135deg,rgba(240,0,128,0.12),rgba(168,134,74,0.08));
+  border-top:1px solid rgba(240,0,128,0.2);
+  border-bottom:1px solid rgba(240,0,128,0.2);
+  padding:20px 24px;text-align:center;
+}
+.launch-banner-inner{max-width:700px;margin:0 auto;}
+.launch-banner-title{font-size:11px;font-weight:900;letter-spacing:0.35em;text-transform:uppercase;color:var(--magenta);margin-bottom:6px;}
+.launch-banner-body{font-size:13px;font-weight:300;color:var(--chrome);line-height:1.6;}
+.launch-banner-body strong{color:var(--white);font-weight:600;}
+
+/* ── PACKAGE FILTER ── */
+.filter-wrap{
+  padding:32px 24px 0;max-width:1200px;margin:0 auto;
+  display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+}
+.filter-btn{
+  font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;
+  padding:10px 20px;border:1px solid rgba(168,134,74,0.25);
+  color:var(--mist);background:transparent;cursor:pointer;
+  transition:all .2s;font-family:"Montserrat",sans-serif;
+}
+.filter-btn:hover{border-color:var(--brass);color:var(--brass-lt);}
+.filter-btn.active{border-color:var(--magenta);color:var(--magenta);background:rgba(240,0,128,0.06);}
+
+/* ── PACKAGES GRID ── */
+.packages-wrap{padding:40px 24px 80px;max-width:1200px;margin:0 auto;}
+.packages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1px;background:rgba(168,134,74,0.1);}
+
+/* ── PACKAGE CARD ── */
+.pkg-card{
+  background:var(--near-black);
+  display:flex;flex-direction:column;
+  transition:background .3s;
+}
+.pkg-card[data-visible="false"]{display:none;}
+
+.pkg-img{height:220px;overflow:hidden;position:relative;flex-shrink:0;}
+.pkg-img img{transition:transform .6s ease;}
+.pkg-card:hover .pkg-img img{transform:scale(1.04);}
+.pkg-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(12,12,20,0.85) 0%,rgba(12,12,20,0.1) 60%,transparent 100%);
+}
+.pkg-img-tag{
+  position:absolute;top:16px;left:16px;
+  font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--magenta);background:rgba(8,8,16,0.85);
+  border:1px solid rgba(240,0,128,0.4);padding:5px 12px;
+}
+.pkg-launch-tag{
+  position:absolute;top:16px;right:16px;
+  font-size:8px;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;
+  color:#fff;background:var(--magenta);padding:5px 10px;
+}
+
+.pkg-body{padding:24px 24px 0;flex:1;}
+.pkg-num{font-size:11px;font-weight:700;letter-spacing:0.3em;color:rgba(168,134,74,0.5);margin-bottom:10px;}
+.pkg-name{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:26px;letter-spacing:0.03em;color:var(--white);margin-bottom:6px;line-height:1.1;}
+.pkg-venues{font-size:9px;font-weight:300;letter-spacing:0.15em;color:var(--mist);margin-bottom:16px;}
+.pkg-desc{font-size:13px;font-weight:300;line-height:1.75;color:var(--chrome);margin-bottom:20px;}
+
+/* WHAT'S INCLUDED */
+.pkg-includes{margin-bottom:20px;}
+.pkg-includes-label{font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--brass);margin-bottom:10px;}
+.pkg-include-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:12px;font-weight:300;color:var(--chrome);
+  padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+  line-height:1.5;
+}
+.pkg-include-item:last-child{border-bottom:none;}
+.pkg-include-dot{width:4px;height:4px;background:var(--magenta);border-radius:50%;flex-shrink:0;margin-top:6px;}
+
+/* PRICING TIERS */
+.pkg-pricing{
+  border-top:1px solid rgba(168,134,74,0.15);
+  margin:0 -24px;
+}
+.pricing-toggle{
+  display:flex;padding:0;border-bottom:1px solid rgba(168,134,74,0.1);
+}
+.pricing-tab{
+  flex:1;padding:10px 8px;text-align:center;cursor:pointer;
+  font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--mist);border-right:1px solid rgba(168,134,74,0.1);
+  transition:all .2s;background:transparent;font-family:"Montserrat",sans-serif;
+  border-top:none;border-left:none;border-bottom:none;
+}
+.pricing-tab:last-child{border-right:none;}
+.pricing-tab.active{color:var(--magenta);background:rgba(240,0,128,0.05);}
+.pricing-tab:hover:not(.active){color:var(--chrome);}
+
+.pricing-panels{padding:20px 24px;}
+.pricing-panel{display:none;}
+.pricing-panel.active{display:block;}
+
+.pricing-config{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.pricing-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 12px;background:rgba(255,255,255,0.02);
+  border:1px solid rgba(168,134,74,0.08);
+}
+.pricing-row-label{font-size:12px;font-weight:300;color:var(--chrome);}
+.pricing-row-prices{display:flex;align-items:center;gap:12px;}
+.pricing-row-full{font-size:11px;font-weight:300;color:var(--slate);text-decoration:line-through;}
+.pricing-row-launch{font-size:15px;font-weight:700;color:var(--white);}
+.pricing-row-saving{font-size:9px;font-weight:700;color:var(--magenta);}
+
+.pricing-note{font-size:10px;font-weight:300;color:var(--mist);line-height:1.6;margin-bottom:16px;}
+
+/* ADD-ONS DROPDOWN */
+.addons-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 24px;border-top:1px solid rgba(168,134,74,0.1);
+  cursor:pointer;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--mist);transition:color .2s;background:transparent;width:100%;
+  font-family:"Montserrat",sans-serif;border-bottom:none;border-left:none;border-right:none;
+}
+.addons-toggle:hover{color:var(--brass-lt);}
+.addons-toggle svg{transition:transform .3s;width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+.addons-toggle.open svg{transform:rotate(180deg);}
+
+.addons-body{
+  display:none;padding:0 24px 20px;
+  border-top:1px solid rgba(168,134,74,0.08);
+}
+.addons-body.open{display:block;}
+.addon-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+  font-size:12px;
+}
+.addon-item:last-child{border-bottom:none;}
+.addon-name{font-weight:300;color:var(--chrome);}
+.addon-price{font-weight:700;color:var(--brass-lt);}
+
+/* PKG CTA */
+.pkg-cta{padding:20px 24px 24px;}
+.pkg-cta-btn{
+  display:block;width:100%;text-align:center;
+  font-size:10px;font-weight:900;letter-spacing:0.35em;text-transform:uppercase;
+  background:var(--magenta);color:#fff;padding:16px;
+  transition:all .25s;box-shadow:0 4px 20px rgba(240,0,128,0.25);
+}
+.pkg-cta-btn:hover{background:#d00070;transform:translateY(-1px);box-shadow:0 8px 28px rgba(240,0,128,0.4);}
+.pkg-cta-note{font-size:9px;font-weight:300;letter-spacing:0.08em;color:var(--mist);text-align:center;margin-top:8px;}
+
+/* ── HOW IT WORKS ── */
+.how-section{
+  padding:80px 24px;
+  border-top:1px solid rgba(168,134,74,0.12);
+  background:var(--near-black);
+}
+.how-inner{max-width:900px;margin:0 auto;}
+.section-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--brass);text-align:center;margin-bottom:14px;}
+.section-title{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:clamp(28px,4vw,42px);text-align:center;color:var(--white);margin-bottom:48px;}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(168,134,74,0.1);}
+.how-item{background:var(--near-black);padding:28px 24px;}
+.how-num{font-family:"Cormorant Garamond",serif;font-size:42px;font-weight:700;color:rgba(240,0,128,0.2);line-height:1;margin-bottom:12px;}
+.how-title{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:8px;}
+.how-body{font-size:12px;font-weight:300;line-height:1.7;color:var(--chrome);}
+
+/* ── STICKY CTA ── */
+.sticky-btn{
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  background:var(--magenta);color:#fff;border:none;cursor:pointer;
+  font-family:"Montserrat",sans-serif;font-weight:900;font-size:9px;
+  letter-spacing:0.4em;text-transform:uppercase;padding:15px 24px;
+  box-shadow:0 4px 32px rgba(240,0,128,0.45);transition:transform .2s,box-shadow .2s;
+}
+.sticky-btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(240,0,128,0.6);}
+
+/* ── FOOTER ── */
+.footer{
+  border-top:1px solid rgba(168,134,74,0.15);
+  padding:40px 32px;
+  display:flex;flex-wrap:wrap;gap:24px;
+  align-items:center;justify-content:space-between;
+}
+.footer-logo{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:15px;letter-spacing:0.2em;text-transform:uppercase;}
+.footer-logo span{color:var(--magenta);}
+.footer-logo small{font-family:"Montserrat",sans-serif;font-weight:300;font-size:10px;letter-spacing:0.25em;color:var(--chrome);display:block;margin-top:2px;}
+.footer-contact{font-size:12px;font-weight:300;color:var(--mist);line-height:1.8;}
+.footer-contact a:hover{color:var(--brass-lt);}
+.footer-cities{font-size:11px;font-weight:300;letter-spacing:0.1em;color:var(--slate);line-height:1.8;}
+.footer-credits{font-size:10px;font-weight:300;color:var(--slate);line-height:1.8;width:100%;border-top:1px solid rgba(168,134,74,0.1);padding-top:20px;}
+.footer-credits a{color:var(--mist);transition:color .2s;}
+.footer-credits a:hover{color:var(--brass-lt);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links .nav-link:not(.nav-link-cta){display:none;}
+  .hero-stats{flex-direction:column;display:flex;border:none;gap:0;}
+  .hero-stat{border-right:none;border-bottom:1px solid rgba(168,134,74,0.15);padding:10px 20px;}
+  .hero-stat:last-child{border-bottom:none;}
+  .packages-grid{grid-template-columns:1fr;}
+  .filter-wrap{gap:6px;}
+  .filter-btn{font-size:8px;padding:8px 14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo"><span>SLAY</span> ENTERTAINMENT<small>Boutique Performance Agency</small></a>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/#faq" class="nav-link">FAQ</a>
+    <a href="/#enquiry" class="nav-link nav-link-cta">Book Now</a>
+  </div>
+</nav>
+
+<!-- STICKY BOOK -->
+<a href="/#enquiry" class="sticky-btn">Check Availability</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="launch-ribbon fade-up d1">
+      <div class="launch-ribbon-dot"></div>
+      <span class="launch-ribbon-text">Launch Pricing — Limited Availability</span>
+    </div>
+    <p class="hero-eyebrow fade-up d1">Six Signature Packages</p>
+    <h1 class="hero-title fade-up d2">
+      Performance that<br><em>defines</em> your event
+    </h1>
+    <p class="hero-sub fade-up d3">
+      Every package is choreographed, costumed, and personally directed by Abira — 20+ years of professional training behind every act we put on stage.
+    </p>
+    <div class="hero-stats fade-up d4">
+      <div class="hero-stat"><div class="hero-stat-val">20+</div><div class="hero-stat-label">Years Training</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">6</div><div class="hero-stat-label">Packages</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">4</div><div class="hero-stat-label">Cities</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">ABN</div><div class="hero-stat-label">Registered & Insured</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH BANNER -->
+<div class="launch-banner">
+  <div class="launch-banner-inner">
+    <div class="launch-banner-title">Introductory Launch Pricing — Available Now</div>
+    <div class="launch-banner-body">
+      We're offering <strong>15% off all packages</strong> for a limited number of early bookings as we launch Slay Entertainment in Sydney. 
+      Lock in launch pricing now — rates return to standard once initial availability is filled.
+    </div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filter-wrap">
+  <button class="filter-btn active" data-filter="all">All Packages</button>
+  <button class="filter-btn" data-filter="nightlife">Nightlife & Venues</button>
+  <button class="filter-btn" data-filter="corporate">Corporate & Brand</button>
+  <button class="filter-btn" data-filter="private">Private & Hens</button>
+  <button class="filter-btn" data-filter="festival">Festival & Outdoor</button>
+</div>
+
+<!-- PACKAGES -->
+<div class="packages-wrap">
+<div class="packages-grid" id="pkg-grid">
+
+  <!-- 01 NEON NIGHTLIFE -->
+  <div class="pkg-card" data-categories="nightlife">
+    <div class="pkg-img">
+      <img src="images/hero-nightlife.jpg" alt="Neon Nightlife performance">
+      <div class="pkg-img-overlay"></div>
+      <div class="pkg-img-tag">Nightlife & Venues</div>
+      <div class="pkg-launch-tag">15% Off</div>
+    </div>
+    <div class="pkg-body">
+      <div class="pkg-num">01</div>
+      <h2 class="pkg-name">Neon Nightlife</h2>
+      <div class="pkg-venues">Nightclubs · Venue residencies · Late-night events</div>
+      <p class="pkg-desc">High-energy UV and LED performance that owns the dancefloor and holds a crowd from first set to last call. Club residencies, weekly bookings, and one-off venue entertainment.</p>
+      <div class="pkg-includes">
+        <div class="pkg-includes-label">What's included</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Custom neon and UV costuming</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>3–4 choreographed sets per booking</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Pre-event brief and run sheet</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Direct coordination with Abira</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Public liability insurance</div>
+      </div>
+    </div>
+    <div class="pkg-pricing">
+      <div class="pricing-toggle">
+        <button class="pricing-tab active" data-pkg="neon" data-tier="solo">Solo</button>
+        <button class="pricing-tab" data-pkg="neon" data-tier="duo">Duo</button>
+        <button class="pricing-tab" data-pkg="neon" data-tier="trio">Trio</button>
+      </div>
+      <div class="pricing-panels">
+        <div class="pricing-panel active" id="neon-solo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$285</span><span class="pricing-row-launch">$245</span><span class="pricing-row-saving">Save $40</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$355</span><span class="pricing-row-launch">$300</span><span class="pricing-row-saving">Save $55</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$430</span><span class="pricing-row-launch">$365</span><span class="pricing-row-saving">Save $65</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$645</span><span class="pricing-row-launch">$550</span><span class="pricing-row-saving">Save $95</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. All prices AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+        <div class="pricing-panel" id="neon-duo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$520</span><span class="pricing-row-launch">$440</span><span class="pricing-row-saving">Save $80</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$660</span><span class="pricing-row-launch">$560</span><span class="pricing-row-saving">Save $100</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$800</span><span class="pricing-row-launch">$680</span><span class="pricing-row-saving">Save $120</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,220</span><span class="pricing-row-launch">$1,040</span><span class="pricing-row-saving">Save $180</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. All prices AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+        <div class="pricing-panel" id="neon-trio">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$755</span><span class="pricing-row-launch">$640</span><span class="pricing-row-saving">Save $115</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$965</span><span class="pricing-row-launch">$820</span><span class="pricing-row-saving">Save $145</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,170</span><span class="pricing-row-launch">$995</span><span class="pricing-row-saving">Save $175</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,795</span><span class="pricing-row-launch">$1,525</span><span class="pricing-row-saving">Save $270</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. All prices AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+      </div>
+      <button class="addons-toggle" onclick="toggleAddons(this)">
+        Add-ons available
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="addons-body">
+        <div class="addon-item"><span class="addon-name">LED pixel poi or fans (per performer)</span><span class="addon-price">+$80</span></div>
+        <div class="addon-item"><span class="addon-name">Full LED costume (EL-wire bodysuit)</span><span class="addon-price">+$180/performer</span></div>
+        <div class="addon-item"><span class="addon-name">UV-reactive makeup package</span><span class="addon-price">+$60/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Costume change</span><span class="addon-price">+$50/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Custom choreography development</span><span class="addon-price">+$300</span></div>
+        <div class="addon-item"><span class="addon-name">Late night surcharge (post midnight)</span><span class="addon-price">+25%</span></div>
+      </div>
+    </div>
+    <div class="pkg-cta">
+      <a href="/#enquiry" class="pkg-cta-btn">Enquire About This Package</a>
+      <p class="pkg-cta-note">30% deposit · Responds within 24hrs · No commitment to enquire</p>
+    </div>
+  </div>
+
+  <!-- 02 VEGAS SHOWGIRL -->
+  <div class="pkg-card" data-categories="corporate nightlife">
+    <div class="pkg-img">
+      <img src="images/hero-corporate.jpg" alt="Vegas Showgirl performance">
+      <div class="pkg-img-overlay"></div>
+      <div class="pkg-img-tag">Corporate & Nightlife</div>
+      <div class="pkg-launch-tag">15% Off</div>
+    </div>
+    <div class="pkg-body">
+      <div class="pkg-num">02</div>
+      <h2 class="pkg-name">Vegas Showgirl</h2>
+      <div class="pkg-venues">Galas · Award nights · Corporate hospitality · Nightclubs</div>
+      <p class="pkg-desc">Gold sequin glamour and ostrich feather fan spectacle that commands any room. Meet-and-greet roving, featured fan dance sets, and showgirl photo moments guests actually want.</p>
+      <div class="pkg-includes">
+        <div class="pkg-includes-label">What's included</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Gold and silver sequin costuming</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Ostrich feather fan performance</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Rhinestone headpiece</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Meet-and-greet and photo moments</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Pre-event brief and run sheet</div>
+      </div>
+    </div>
+    <div class="pkg-pricing">
+      <div class="pricing-toggle">
+        <button class="pricing-tab active" data-pkg="vegas" data-tier="solo">Solo</button>
+        <button class="pricing-tab" data-pkg="vegas" data-tier="duo">Duo</button>
+        <button class="pricing-tab" data-pkg="vegas" data-tier="trio">Trio</button>
+      </div>
+      <div class="pricing-panels">
+        <div class="pricing-panel active" id="vegas-solo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$340</span><span class="pricing-row-launch">$290</span><span class="pricing-row-saving">Save $50</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$415</span><span class="pricing-row-launch">$355</span><span class="pricing-row-saving">Save $60</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$495</span><span class="pricing-row-launch">$420</span><span class="pricing-row-saving">Save $75</span></div></div>
+          </div>
+          <p class="pricing-note">Vegas Showgirl includes premium wardrobe. Minimum 3-hour booking. AUD inc GST.</p>
+        </div>
+        <div class="pricing-panel" id="vegas-duo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$635</span><span class="pricing-row-launch">$540</span><span class="pricing-row-saving">Save $95</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$790</span><span class="pricing-row-launch">$670</span><span class="pricing-row-saving">Save $120</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$945</span><span class="pricing-row-launch">$805</span><span class="pricing-row-saving">Save $140</span></div></div>
+          </div>
+          <p class="pricing-note">Vegas Showgirl includes premium wardrobe. Minimum 3-hour booking. AUD inc GST.</p>
+        </div>
+        <div class="pricing-panel" id="vegas-trio">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$935</span><span class="pricing-row-launch">$795</span><span class="pricing-row-saving">Save $140</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,165</span><span class="pricing-row-launch">$990</span><span class="pricing-row-saving">Save $175</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,395</span><span class="pricing-row-launch">$1,185</span><span class="pricing-row-saving">Save $210</span></div></div>
+          </div>
+          <p class="pricing-note">Vegas Showgirl includes premium wardrobe. Minimum 3-hour booking. AUD inc GST.</p>
+        </div>
+      </div>
+      <button class="addons-toggle" onclick="toggleAddons(this)">
+        Add-ons available
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="addons-body">
+        <div class="addon-item"><span class="addon-name">Ostrich plume headpiece upgrade (Size C)</span><span class="addon-price">+$150/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Choreographed 6-min fan duet (feature set)</span><span class="addon-price">+$300</span></div>
+        <div class="addon-item"><span class="addon-name">Satin opera gloves upgrade</span><span class="addon-price">+$40/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Award presentation escort duty</span><span class="addon-price">+$150/performer/hr</span></div>
+        <div class="addon-item"><span class="addon-name">Costume change</span><span class="addon-price">+$50/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Public holiday surcharge</span><span class="addon-price">+50%</span></div>
+      </div>
+    </div>
+    <div class="pkg-cta">
+      <a href="/#enquiry" class="pkg-cta-btn">Enquire About This Package</a>
+      <p class="pkg-cta-note">30% deposit · Responds within 24hrs · No commitment to enquire</p>
+    </div>
+  </div>
+
+  <!-- 03 RACE DAY -->
+  <div class="pkg-card" data-categories="corporate">
+    <div class="pkg-img">
+      <img src="images/section-corporate.jpg" alt="Race Day brand activation">
+      <div class="pkg-img-overlay"></div>
+      <div class="pkg-img-tag">Brand Activation</div>
+      <div class="pkg-launch-tag">15% Off</div>
+    </div>
+    <div class="pkg-body">
+      <div class="pkg-num">03</div>
+      <h2 class="pkg-name">Race Day</h2>
+      <div class="pkg-venues">Motorsport events · Dealership launches · Automotive brand work</div>
+      <p class="pkg-desc">Costumed choreographed performance with optional Ducati static display — Sydney's only performance agency with a motorcycle backdrop. Built for motorsport events, dealership launches, and automotive brand activations.</p>
+      <div class="pkg-includes">
+        <div class="pkg-includes-label">What's included</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Racing-themed branded costuming</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Choreographed performance sets</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Meet-and-greet and photo duty</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Pre-event brief and run sheet</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Public liability insurance</div>
+      </div>
+    </div>
+    <div class="pkg-pricing">
+      <div class="pricing-toggle">
+        <button class="pricing-tab active" data-pkg="race" data-tier="solo">Solo</button>
+        <button class="pricing-tab" data-pkg="race" data-tier="duo">Duo</button>
+        <button class="pricing-tab" data-pkg="race" data-tier="trio">Trio</button>
+      </div>
+      <div class="pricing-panels">
+        <div class="pricing-panel active" id="race-solo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$320</span><span class="pricing-row-launch">$272</span><span class="pricing-row-saving">Save $48</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$393</span><span class="pricing-row-launch">$334</span><span class="pricing-row-saving">Save $59</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$712</span><span class="pricing-row-launch">$605</span><span class="pricing-row-saving">Save $107</span></div></div>
+          </div>
+          <p class="pricing-note">Add Ducati static display from +$400. AUD inc GST. 30% deposit secures date.</p>
+        </div>
+        <div class="pricing-panel" id="race-duo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$591</span><span class="pricing-row-launch">$502</span><span class="pricing-row-saving">Save $89</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$741</span><span class="pricing-row-launch">$630</span><span class="pricing-row-saving">Save $111</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,341</span><span class="pricing-row-launch">$1,140</span><span class="pricing-row-saving">Save $201</span></div></div>
+          </div>
+          <p class="pricing-note">Add Ducati static display from +$400. AUD inc GST. 30% deposit secures date.</p>
+        </div>
+        <div class="pricing-panel" id="race-trio">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$862</span><span class="pricing-row-launch">$733</span><span class="pricing-row-saving">Save $129</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,089</span><span class="pricing-row-launch">$926</span><span class="pricing-row-saving">Save $163</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,969</span><span class="pricing-row-launch">$1,674</span><span class="pricing-row-saving">Save $295</span></div></div>
+          </div>
+          <p class="pricing-note">Add Ducati static display from +$400. AUD inc GST. 30% deposit secures date.</p>
+        </div>
+      </div>
+      <button class="addons-toggle" onclick="toggleAddons(this)">
+        Add-ons available
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="addons-body">
+        <div class="addon-item"><span class="addon-name">Ducati static display (trailer, setup, insurance)</span><span class="addon-price">+$400</span></div>
+        <div class="addon-item"><span class="addon-name">Custom brand-aligned costume variant</span><span class="addon-price">+$600 + 4wk lead</span></div>
+        <div class="addon-item"><span class="addon-name">Photography deliverable (30-min shoot)</span><span class="addon-price">+$500</span></div>
+        <div class="addon-item"><span class="addon-name">60-second social reel (48hr turnaround)</span><span class="addon-price">+$600</span></div>
+        <div class="addon-item"><span class="addon-name">Trackside MC / announcements</span><span class="addon-price">+$450/hr</span></div>
+        <div class="addon-item"><span class="addon-name">Travel >20km from CBD (trailer tow)</span><span class="addon-price">+$2.50/km</span></div>
+      </div>
+    </div>
+    <div class="pkg-cta">
+      <a href="/#enquiry" class="pkg-cta-btn">Enquire About This Package</a>
+      <p class="pkg-cta-note">30% deposit · Responds within 24hrs · No commitment to enquire</p>
+    </div>
+  </div>
+
+  <!-- 04 CARNIVAL / CIRQUE -->
+  <div class="pkg-card" data-categories="nightlife corporate">
+    <div class="pkg-img">
+      <img src="images/section-nightlife.jpg" alt="Carnival Cirque performance">
+      <div class="pkg-img-overlay"></div>
+      <div class="pkg-img-tag">Nightlife & Events</div>
+      <div class="pkg-launch-tag">15% Off</div>
+    </div>
+    <div class="pkg-body">
+      <div class="pkg-num">04</div>
+      <h2 class="pkg-name">Carnival / Cirque</h2>
+      <div class="pkg-venues">Product launches · End-of-year events · Themed nights</div>
+      <p class="pkg-desc">Theatrical roving entertainment in B&W stripe, Beetlejuice, or Parisian cabaret costume. Keeps energy moving across the whole venue — not just the stage — all night.</p>
+      <div class="pkg-includes">
+        <div class="pkg-includes-label">What's included</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Themed theatrical costuming</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Roving entertainment across the venue</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Mini feature sets on request</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Pre-event brief and run sheet</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Public liability insurance</div>
+      </div>
+    </div>
+    <div class="pkg-pricing">
+      <div class="pricing-toggle">
+        <button class="pricing-tab active" data-pkg="carnival" data-tier="solo">Solo</button>
+        <button class="pricing-tab" data-pkg="carnival" data-tier="duo">Duo</button>
+        <button class="pricing-tab" data-pkg="carnival" data-tier="trio">Trio</button>
+      </div>
+      <div class="pricing-panels">
+        <div class="pricing-panel active" id="carnival-solo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$285</span><span class="pricing-row-launch">$245</span><span class="pricing-row-saving">Save $40</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$355</span><span class="pricing-row-launch">$300</span><span class="pricing-row-saving">Save $55</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$430</span><span class="pricing-row-launch">$365</span><span class="pricing-row-saving">Save $65</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+        <div class="pricing-panel" id="carnival-duo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$520</span><span class="pricing-row-launch">$440</span><span class="pricing-row-saving">Save $80</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$660</span><span class="pricing-row-launch">$560</span><span class="pricing-row-saving">Save $100</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$800</span><span class="pricing-row-launch">$680</span><span class="pricing-row-saving">Save $120</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+        <div class="pricing-panel" id="carnival-trio">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$755</span><span class="pricing-row-launch">$640</span><span class="pricing-row-saving">Save $115</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$965</span><span class="pricing-row-launch">$820</span><span class="pricing-row-saving">Save $145</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">5 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,170</span><span class="pricing-row-launch">$995</span><span class="pricing-row-saving">Save $175</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+      </div>
+      <button class="addons-toggle" onclick="toggleAddons(this)">
+        Add-ons available
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="addons-body">
+        <div class="addon-item"><span class="addon-name">White-face makeup (MUA on-site)</span><span class="addon-price">+$100/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Bespoke Beetlejuice costume variant</span><span class="addon-price">+$150</span></div>
+        <div class="addon-item"><span class="addon-name">Stilt-walker add-on (subcontracted)</span><span class="addon-price">+$500–$900</span></div>
+        <div class="addon-item"><span class="addon-name">Custom choreography development</span><span class="addon-price">+$300</span></div>
+        <div class="addon-item"><span class="addon-name">Halloween / October peak surcharge</span><span class="addon-price">+20%</span></div>
+      </div>
+    </div>
+    <div class="pkg-cta">
+      <a href="/#enquiry" class="pkg-cta-btn">Enquire About This Package</a>
+      <p class="pkg-cta-note">30% deposit · Responds within 24hrs · No commitment to enquire</p>
+    </div>
+  </div>
+
+  <!-- 05 BURLESQUE & GLAMOUR -->
+  <div class="pkg-card" data-categories="private nightlife">
+    <div class="pkg-img">
+      <img src="images/pkg-burlesque.jpg" alt="Burlesque and Glamour performance">
+      <div class="pkg-img-overlay"></div>
+      <div class="pkg-img-tag">Adults Only · Private</div>
+      <div class="pkg-launch-tag">15% Off</div>
+    </div>
+    <div class="pkg-body">
+      <div class="pkg-num">05</div>
+      <h2 class="pkg-name">Burlesque & Glamour</h2>
+      <div class="pkg-venues">Hens parties · Yacht events · Private functions · Adult venues</div>
+      <p class="pkg-desc">Choreographed burlesque featuring feather fans, opera gloves, and signature reveal moments. Intimate, theatrical, and genuinely unforgettable — for hens, private events, and select adult venues.</p>
+      <div class="pkg-includes">
+        <div class="pkg-includes-label">What's included</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Red and black corseted costuming</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Feather boa and opera gloves</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Choreographed 5–7 min featured set</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Post-show meet-and-greet</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Pre-event brief and run sheet</div>
+      </div>
+    </div>
+    <div class="pkg-pricing">
+      <div class="pricing-toggle">
+        <button class="pricing-tab active" data-pkg="burlesque" data-tier="solo">Solo</button>
+        <button class="pricing-tab" data-pkg="burlesque" data-tier="duo">Duo</button>
+        <button class="pricing-tab" data-pkg="burlesque" data-tier="trio">Trio</button>
+      </div>
+      <div class="pricing-panels">
+        <div class="pricing-panel active" id="burlesque-solo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$330</span><span class="pricing-row-launch">$280</span><span class="pricing-row-saving">Save $50</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$405</span><span class="pricing-row-launch">$345</span><span class="pricing-row-saving">Save $60</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Hens package (1.5hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$255</span><span class="pricing-row-launch">$215</span><span class="pricing-row-saving">Save $40</span></div></div>
+          </div>
+          <p class="pricing-note">Adults 18+ only. Hens package includes interactive tease game. AUD inc GST.</p>
+        </div>
+        <div class="pricing-panel" id="burlesque-duo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$615</span><span class="pricing-row-launch">$522</span><span class="pricing-row-saving">Save $93</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$765</span><span class="pricing-row-launch">$650</span><span class="pricing-row-saving">Save $115</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Yacht / boat (3hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$738</span><span class="pricing-row-launch">$627</span><span class="pricing-row-saving">Save $111</span></div></div>
+          </div>
+          <p class="pricing-note">Adults 18+ only. Yacht price includes 20% surcharge. AUD inc GST.</p>
+        </div>
+        <div class="pricing-panel" id="burlesque-trio">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$900</span><span class="pricing-row-launch">$765</span><span class="pricing-row-saving">Save $135</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,125</span><span class="pricing-row-launch">$956</span><span class="pricing-row-saving">Save $169</span></div></div>
+          </div>
+          <p class="pricing-note">Adults 18+ only. Minimum 3-hour booking. AUD inc GST.</p>
+        </div>
+      </div>
+      <button class="addons-toggle" onclick="toggleAddons(this)">
+        Add-ons available
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="addons-body">
+        <div class="addon-item"><span class="addon-name">Oversized ostrich feather fan reveal</span><span class="addon-price">+$150/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Custom choreography development</span><span class="addon-price">+$300</span></div>
+        <div class="addon-item"><span class="addon-name">MC-integrated tease routine</span><span class="addon-price">+$350</span></div>
+        <div class="addon-item"><span class="addon-name">Additional costume reveal</span><span class="addon-price">+$120/reveal</span></div>
+        <div class="addon-item"><span class="addon-name">Yacht / boat surcharge</span><span class="addon-price">+20%</span></div>
+        <div class="addon-item"><span class="addon-name">Valentine's Day / NYE surcharge</span><span class="addon-price">+50%</span></div>
+      </div>
+    </div>
+    <div class="pkg-cta">
+      <a href="/#enquiry" class="pkg-cta-btn">Enquire About This Package</a>
+      <p class="pkg-cta-note">30% deposit · Responds within 24hrs · No commitment to enquire</p>
+    </div>
+  </div>
+
+  <!-- 06 FAN DANCERS -->
+  <div class="pkg-card" data-categories="festival corporate">
+    <div class="pkg-img">
+      <img src="images/pkg-fan.jpg" alt="Fan Dancers festival performance">
+      <div class="pkg-img-overlay"></div>
+      <div class="pkg-img-tag">Festival & Corporate</div>
+      <div class="pkg-launch-tag">15% Off</div>
+    </div>
+    <div class="pkg-body">
+      <div class="pkg-num">06</div>
+      <h2 class="pkg-name">Fan Dancers</h2>
+      <div class="pkg-venues">Festival stages · Rooftops · Pool parties · Brand activations</div>
+      <p class="pkg-desc">Psychedelic silk fan artistry for festival stages, rooftops, pool parties, and summer brand activations. Visually arresting energy that works from midday to midnight — without the nightclub aesthetic.</p>
+      <div class="pkg-includes">
+        <div class="pkg-includes-label">What's included</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Psychedelic bikini costuming</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Silk fan choreography (2–3 sets)</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Roving between sets</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Pre-event brief and run sheet</div>
+        <div class="pkg-include-item"><div class="pkg-include-dot"></div>Public liability insurance</div>
+      </div>
+    </div>
+    <div class="pkg-pricing">
+      <div class="pricing-toggle">
+        <button class="pricing-tab active" data-pkg="fan" data-tier="solo">Solo</button>
+        <button class="pricing-tab" data-pkg="fan" data-tier="duo">Duo</button>
+        <button class="pricing-tab" data-pkg="fan" data-tier="trio">Trio</button>
+      </div>
+      <div class="pricing-panels">
+        <div class="pricing-panel active" id="fan-solo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$285</span><span class="pricing-row-launch">$245</span><span class="pricing-row-saving">Save $40</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$355</span><span class="pricing-row-launch">$300</span><span class="pricing-row-saving">Save $55</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$645</span><span class="pricing-row-launch">$550</span><span class="pricing-row-saving">Save $95</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+        <div class="pricing-panel" id="fan-duo">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$520</span><span class="pricing-row-launch">$440</span><span class="pricing-row-saving">Save $80</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$660</span><span class="pricing-row-launch">$560</span><span class="pricing-row-saving">Save $100</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,220</span><span class="pricing-row-launch">$1,040</span><span class="pricing-row-saving">Save $180</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+        <div class="pricing-panel" id="fan-trio">
+          <div class="pricing-config">
+            <div class="pricing-row"><span class="pricing-row-label">3 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$755</span><span class="pricing-row-launch">$640</span><span class="pricing-row-saving">Save $115</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">4 hours</span><div class="pricing-row-prices"><span class="pricing-row-full">$965</span><span class="pricing-row-launch">$820</span><span class="pricing-row-saving">Save $145</span></div></div>
+            <div class="pricing-row"><span class="pricing-row-label">Full day (8hrs)</span><div class="pricing-row-prices"><span class="pricing-row-full">$1,795</span><span class="pricing-row-launch">$1,525</span><span class="pricing-row-saving">Save $270</span></div></div>
+          </div>
+          <p class="pricing-note">Minimum 3-hour booking. AUD inc GST. 30% deposit secures your date.</p>
+        </div>
+      </div>
+      <button class="addons-toggle" onclick="toggleAddons(this)">
+        Add-ons available
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="addons-body">
+        <div class="addon-item"><span class="addon-name">Silk fan custom colour match to brand</span><span class="addon-price">+$200 (2wk lead)</span></div>
+        <div class="addon-item"><span class="addon-name">UV-reactive print (evening variant)</span><span class="addon-price">+$60/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Destination away-day loading</span><span class="addon-price">+$400/performer/day</span></div>
+        <div class="addon-item"><span class="addon-name">Sun / weather loading (full outdoor day)</span><span class="addon-price">+$120/performer</span></div>
+        <div class="addon-item"><span class="addon-name">Live DJ synchronisation choreography</span><span class="addon-price">+$300</span></div>
+      </div>
+    </div>
+    <div class="pkg-cta">
+      <a href="/#enquiry" class="pkg-cta-btn">Enquire About This Package</a>
+      <p class="pkg-cta-note">30% deposit · Responds within 24hrs · No commitment to enquire</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-inner">
+    <p class="section-eyebrow">The Process</p>
+    <h2 class="section-title">How it works</h2>
+    <div class="how-grid">
+      <div class="how-item">
+        <div class="how-num">01</div>
+        <div class="how-title">Enquire</div>
+        <div class="how-body">Tell us your event date, type, location, and the package you're interested in. No commitment required — we respond within 24 hours.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">02</div>
+        <div class="how-title">Tailored proposal</div>
+        <div class="how-body">Abira personally reviews your brief and comes back with a proposal built specifically around your event — not a copy-paste template.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">03</div>
+        <div class="how-title">Secure your date</div>
+        <div class="how-body">A 30% deposit locks in your booking. The balance is due 7 days before your event. Cancellation terms are clear and fair.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">04</div>
+        <div class="how-title">We handle everything</div>
+        <div class="how-body">Run sheet, costume confirmation, performer briefing, day-of coordination — all managed by Abira so you can focus on your event.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo"><span>SLAY</span> ENTERTAINMENT<small>Boutique Performance Agency</small></div>
+  <div class="footer-contact">
+    <a href="mailto:hello@slayentertainment.co">hello@slayentertainment.co</a><br>
+    <a href="https://instagram.com/slayentertainmentco">@slayentertainmentco</a>
+  </div>
+  <div class="footer-cities">Sydney · Brisbane<br>Sunshine Coast · Bali</div>
+  <div class="footer-credits">
+    <div>Creative direction &amp; business concept: <a href="https://www.instagram.com/abiraharvey/" target="_blank" rel="noopener">Abira Harvey</a></div>
+    <div>Conceived and developed by <a href="https://www.linkedin.com/in/nicolakharvey/" target="_blank" rel="noopener">Nicola Harvey</a> &nbsp;·&nbsp; AI-assisted design &nbsp;·&nbsp; Development</div>
+  </div>
+</footer>
+
+<script>
+// Pricing tab switching
+document.querySelectorAll('.pricing-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const pkg  = this.dataset.pkg;
+    const tier = this.dataset.tier;
+    const card = this.closest('.pkg-card');
+
+    card.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+
+    card.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));
+    const panel = card.querySelector(`#${pkg}-${tier}`);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+// Add-ons toggle
+function toggleAddons(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// Category filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.pkg-card').forEach(card => {
+      if (filter === 'all') {
+        card.style.display = 'flex';
+      } else {
+        const cats = card.dataset.categories || '';
+        card.style.display = cats.includes(filter) ? 'flex' : 'none';
+      }
+    });
+
+    // Reflow grid background based on visible cards
+    const grid = document.getElementById('pkg-grid');
+    const visible = [...grid.querySelectorAll('.pkg-card')].filter(c => c.style.display !== 'none');
+    grid.style.gridTemplateColumns = visible.length === 1
+      ? 'minmax(340px, 580px)'
+      : 'repeat(auto-fill, minmax(340px, 1fr))';
+  });
+});
+</script>
+
+</body>
+</html>
