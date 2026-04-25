@@ -22,14 +22,29 @@ exports.handler = async function (event) {
       "Not sure yet — happy to discuss":  2   // Falls back to Enquiries - New only
     };
 
-    // Parse form fields from Netlify's URL-encoded POST body
-    const params = new URLSearchParams(event.body);
-    const name         = params.get("name")         || "";
-    const email        = params.get("email")        || "";
-    const eventType    = params.get("event-type")   || "";
-    const eventDate    = params.get("event-date")   || "";
-    const flexibleDate = params.get("flexible-date") || "";
-    const message      = params.get("message")      || "";
+    // Netlify outgoing webhooks send JSON with a "data" object containing form fields
+    let name, email, eventType, eventDate, flexibleDate, message;
+
+    try {
+      const payload = JSON.parse(event.body);
+      // Netlify webhook payload structure: { data: { name, email, ... } }
+      const data = payload.data || payload;
+      name         = data["name"]          || "";
+      email        = data["email"]         || "";
+      eventType    = data["event-type"]    || "";
+      eventDate    = data["event-date"]    || "";
+      flexibleDate = data["flexible-date"] || "";
+      message      = data["message"]       || "";
+    } catch (e) {
+      // Fallback: try URL-encoded parsing
+      const params = new URLSearchParams(event.body);
+      name         = params.get("name")          || "";
+      email        = params.get("email")         || "";
+      eventType    = params.get("event-type")    || "";
+      eventDate    = params.get("event-date")    || "";
+      flexibleDate = params.get("flexible-date") || "";
+      message      = params.get("message")       || "";
+    }
 
     if (!email) {
       return { statusCode: 400, body: "No email provided" };
@@ -59,12 +74,12 @@ exports.handler = async function (event) {
         listIds:       listIds,
         updateEnabled: true,
         attributes: {
-          FIRSTNAME:      firstName,
-          LASTNAME:       lastName,
-          EVENT_TYPE:     eventType,
-          EVENT_DATE:     eventDate,
-          FLEXIBLE_DATE:  flexibleDate === "yes" ? "Yes" : "No",
-          MESSAGE:        message
+          FIRSTNAME:     firstName,
+          LASTNAME:      lastName,
+          EVENT_TYPE:    eventType,
+          EVENT_DATE:    eventDate,
+          FLEXIBLE_DATE: flexibleDate === "yes" ? "Yes" : "No",
+          MESSAGE:       message
         }
       })
     });
@@ -72,7 +87,6 @@ exports.handler = async function (event) {
     if (!contactRes.ok) {
       const err = await contactRes.text();
       console.error("Brevo contact error:", err);
-      // Don't return error — still try to send the confirmation email
     }
 
     // 2. Send confirmation email via transactional template
