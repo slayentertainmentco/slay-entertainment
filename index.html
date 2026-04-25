@@ -770,41 +770,48 @@ a{text-decoration:none;color:inherit;}
 
 <script>
 (function() {
-  // Read package param from URL and pre-fill form
+  // Read package param from URL query string e.g. /?package=Neon+Nightlife#enquiry
   const params = new URLSearchParams(window.location.search);
   const pkg = params.get('package');
 
-  if (pkg) {
-    const decoded = decodeURIComponent(pkg.replace(/\+/g, ' '));
+  if (!pkg) return;
 
-    // Set hidden field
-    const pkgField = document.getElementById('package-field');
-    if (pkgField) pkgField.value = decoded;
+  // Decode: replace + with space then decode URI components
+  const decoded = decodeURIComponent(pkg.replace(/\+/g, ' '));
 
-    // Show package banner
-    const banner = document.getElementById('package-banner-wrap');
-    const bannerName = document.getElementById('package-banner-name');
-    if (banner && bannerName) {
-      bannerName.textContent = decoded;
-      banner.style.display = 'block';
+  // 1. Set hidden package field so it submits with the form
+  const pkgField = document.getElementById('package-field');
+  if (pkgField) pkgField.value = decoded;
+
+  // 2. Show the package banner above the message field
+  const banner = document.getElementById('package-banner-wrap');
+  const bannerName = document.getElementById('package-banner-name');
+  if (banner && bannerName) {
+    bannerName.textContent = decoded;
+    banner.style.display = 'block';
+  }
+
+  // 3. Pre-fill message textarea
+  const textarea = document.querySelector('textarea[name="message"]');
+  if (textarea) {
+    textarea.value = "I'm interested in the " + decoded + " package. ";
+  }
+
+  // 4. Scroll to enquiry form
+  // Use both DOMContentLoaded and a timeout fallback to handle page load timing
+  function scrollToEnquiry() {
+    const section = document.getElementById('enquiry');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
 
-    // Pre-populate message textarea with package context
-    const textarea = document.querySelector('textarea[name="message"]');
-    if (textarea && !textarea.value) {
-      textarea.value = 'I'm interested in the ' + decoded + ' package. ';
-      textarea.focus();
-      const len = textarea.value.length;
-      textarea.setSelectionRange(len, len);
-    }
-
-    // Scroll to enquiry section smoothly
-    const enquirySection = document.getElementById('enquiry');
-    if (enquirySection) {
-      setTimeout(() => {
-        enquirySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(scrollToEnquiry, 200);
+    });
+  } else {
+    setTimeout(scrollToEnquiry, 200);
   }
 })();
 </script>
