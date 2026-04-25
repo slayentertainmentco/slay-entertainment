@@ -682,12 +682,12 @@ a{text-decoration:none;color:inherit;}
     <div class="form-sub" style="text-align:center;max-width:100%;">Tell us about your event and we'll come back with a tailored proposal within 24 hours. No commitment required.</div>
     <div class="rule-full"></div>
 
-    <form name="enquiry" method="POST" data-netlify="true" 
-  data-netlify-honeypot="bot-field" action="/thank-you">
+    <form name="enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
       <input type="hidden" name="form-name" value="enquiry">
       <p style="display:none;">
         <label>Don't fill this out: <input name="bot-field"></label>
       </p>
+      <input type="hidden" name="package" id="package-field" value="">
       <div class="form-row">
         <div>
           <label class="form-label">Your Name *</label>
@@ -697,10 +697,6 @@ a{text-decoration:none;color:inherit;}
           <label class="form-label">Email Address *</label>
           <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
         </div>
-      </div>
-      <div class="form-field">
-        <label class="form-label">Phone Number</label>
-        <input type="tel" name="phone" class="form-input" placeholder="+61 4XX XXX XXX">
       </div>
       <div class="form-row">
         <div>
@@ -730,6 +726,23 @@ a{text-decoration:none;color:inherit;}
           <option>Not sure yet — happy to discuss</option>
         </select>
       </div>
+      <div class="form-field" id="package-banner-wrap" style="display:none;">
+        <div id="package-banner" style="
+          background:rgba(240,0,128,0.06);
+          border:1px solid rgba(240,0,128,0.3);
+          padding:12px 16px;
+          display:flex;align-items:center;justify-content:space-between;
+          gap:12px;
+        ">
+          <div>
+            <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--brass);margin-bottom:4px;">Selected Package</div>
+            <div id="package-banner-name" style="font-size:14px;font-weight:600;color:var(--white);"></div>
+          </div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--magenta);border:1px solid rgba(240,0,128,0.4);padding:4px 10px;white-space:nowrap;">
+            15% Off
+          </div>
+        </div>
+      </div>
       <div class="form-field">
         <label class="form-label">Tell us about your event</label>
         <textarea name="message" class="form-input form-textarea" placeholder="Event date, venue or location, approximate guest numbers, any theme or brief details — as much or as little as you know right now."></textarea>
@@ -755,5 +768,45 @@ a{text-decoration:none;color:inherit;}
   </div>
 </footer>
 
+<script>
+(function() {
+  // Read package param from URL and pre-fill form
+  const params = new URLSearchParams(window.location.search);
+  const pkg = params.get('package');
+
+  if (pkg) {
+    const decoded = decodeURIComponent(pkg.replace(/\+/g, ' '));
+
+    // Set hidden field
+    const pkgField = document.getElementById('package-field');
+    if (pkgField) pkgField.value = decoded;
+
+    // Show package banner
+    const banner = document.getElementById('package-banner-wrap');
+    const bannerName = document.getElementById('package-banner-name');
+    if (banner && bannerName) {
+      bannerName.textContent = decoded;
+      banner.style.display = 'block';
+    }
+
+    // Pre-populate message textarea with package context
+    const textarea = document.querySelector('textarea[name="message"]');
+    if (textarea && !textarea.value) {
+      textarea.value = 'I'm interested in the ' + decoded + ' package. ';
+      textarea.focus();
+      const len = textarea.value.length;
+      textarea.setSelectionRange(len, len);
+    }
+
+    // Scroll to enquiry section smoothly
+    const enquirySection = document.getElementById('enquiry');
+    if (enquirySection) {
+      setTimeout(() => {
+        enquirySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }
+})();
+</script>
 </body>
 </html>
