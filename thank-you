@@ -15,7 +15,7 @@
 html{scroll-behavior:smooth;}
 body{font-family:"Montserrat",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;min-height:100vh;}
 a{text-decoration:none;color:inherit;}
- 
+
 /* ── NAV ── */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -30,12 +30,12 @@ a{text-decoration:none;color:inherit;}
 .nav-links{display:flex;gap:28px;align-items:center;}
 .nav-link{font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--chrome);transition:color .2s;}
 .nav-link:hover{color:var(--brass-lt);}
- 
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 @keyframes expandWidth{from{width:0;}to{width:48px;}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,0,128,0.4);}50%{box-shadow:0 0 0 12px rgba(240,0,128,0);}}
- 
+
 .fade-up{opacity:0;animation:fadeUp .7s ease forwards;}
 .delay-1{animation-delay:.15s;}
 .delay-2{animation-delay:.3s;}
@@ -43,7 +43,7 @@ a{text-decoration:none;color:inherit;}
 .delay-4{animation-delay:.6s;}
 .delay-5{animation-delay:.75s;}
 .delay-6{animation-delay:.9s;}
- 
+
 /* ── HERO CONFIRMATION ── */
 .confirm-hero{
   min-height:100vh;
@@ -57,7 +57,7 @@ a{text-decoration:none;color:inherit;}
   background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(240,0,128,0.06) 0%, transparent 70%);
   pointer-events:none;
 }
- 
+
 /* Animated grid lines */
 .confirm-hero::after{
   content:"";position:absolute;inset:0;
@@ -67,12 +67,12 @@ a{text-decoration:none;color:inherit;}
   background-size:80px 80px;
   pointer-events:none;
 }
- 
+
 .confirm-inner{
   max-width:680px;width:100%;text-align:center;
   position:relative;z-index:2;
 }
- 
+
 /* Check mark */
 .check-wrap{
   width:72px;height:72px;border-radius:50%;
@@ -86,7 +86,7 @@ a{text-decoration:none;color:inherit;}
   stroke:var(--magenta);fill:none;
   stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
 }
- 
+
 .confirm-eyebrow{
   font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;
   color:var(--brass);margin-bottom:20px;
@@ -97,19 +97,19 @@ a{text-decoration:none;color:inherit;}
   line-height:1.05;color:var(--white);margin-bottom:24px;
 }
 .confirm-title em{color:var(--magenta);font-style:italic;}
- 
+
 .brass-rule{
   width:0;height:1px;background:var(--brass);
   margin:0 auto 28px;
   animation:expandWidth .6s ease .5s forwards;
 }
- 
+
 .confirm-body{
   font-size:15px;font-weight:300;line-height:1.8;
   color:var(--chrome);max-width:480px;margin:0 auto 40px;
 }
 .confirm-body strong{color:var(--white);font-weight:600;}
- 
+
 /* 24hr badge */
 .hour-badge{
   display:inline-flex;align-items:center;gap:10px;
@@ -125,7 +125,7 @@ a{text-decoration:none;color:inherit;}
   font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;
   color:var(--mist);line-height:1.4;text-align:left;
 }
- 
+
 /* Instagram CTA */
 .ig-cta{
   display:inline-flex;align-items:center;gap:14px;
@@ -139,7 +139,7 @@ a{text-decoration:none;color:inherit;}
 .ig-cta:hover svg{stroke:#fff;}
 .ig-cta-text{font-size:10px;font-weight:900;letter-spacing:0.35em;text-transform:uppercase;color:var(--magenta);transition:color .25s;}
 .ig-cta:hover .ig-cta-text{color:#fff;}
- 
+
 /* ── PACKAGES SECTION ── */
 .packages-section{
   padding:80px 24px 100px;
@@ -150,7 +150,7 @@ a{text-decoration:none;color:inherit;}
   content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
   width:1px;height:60px;background:linear-gradient(var(--brass),transparent);
 }
- 
+
 .section-eyebrow{
   font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;
   color:var(--brass);text-align:center;margin-bottom:16px;
@@ -164,7 +164,7 @@ a{text-decoration:none;color:inherit;}
   font-size:13px;font-weight:300;color:var(--mist);
   text-align:center;letter-spacing:0.05em;margin-bottom:56px;
 }
- 
+
 .pkg-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -185,7 +185,7 @@ a{text-decoration:none;color:inherit;}
 }
 .pkg-card:hover{background:#111120;}
 .pkg-card:hover::before{transform:scaleX(1);}
- 
+
 .pkg-num{
   font-family:"Cormorant Garamond",serif;font-size:13px;font-weight:700;
   color:rgba(168,134,74,0.4);letter-spacing:0.2em;margin-bottom:16px;display:block;
@@ -202,7 +202,7 @@ a{text-decoration:none;color:inherit;}
   font-size:12px;font-weight:300;line-height:1.7;
   color:var(--chrome);
 }
- 
+
 /* packages CTA */
 .packages-cta-wrap{text-align:center;}
 .btn-packages{
@@ -222,7 +222,7 @@ a{text-decoration:none;color:inherit;}
   box-shadow:0 4px 24px rgba(240,0,128,0.3);
 }
 .btn-enquiry:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(240,0,128,0.5);}
- 
+
 /* ── FOOTER ── */
 .footer{
   border-top:1px solid rgba(168,134,74,0.15);
@@ -242,7 +242,7 @@ a{text-decoration:none;color:inherit;}
 .footer-credits{font-size:10px;font-weight:300;color:var(--slate);line-height:1.8;width:100%;border-top:1px solid rgba(168,134,74,0.1);padding-top:20px;}
 .footer-credits a{color:var(--mist);transition:color .2s;}
 .footer-credits a:hover{color:var(--brass-lt);}
- 
+
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   .pkg-grid{grid-template-columns:1fr 1fr;}
@@ -259,7 +259,7 @@ a{text-decoration:none;color:inherit;}
 </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav class="nav">
   <a href="/" class="nav-logo">
@@ -272,36 +272,36 @@ a{text-decoration:none;color:inherit;}
     <a href="/#enquiry" class="nav-link">Book</a>
   </div>
 </nav>
- 
+
 <!-- CONFIRMATION HERO -->
 <section class="confirm-hero">
   <div class="confirm-inner">
- 
+
     <!-- Check circle -->
     <div class="check-wrap">
       <svg class="check-icon" viewBox="0 0 24 24">
         <polyline points="20 6 9 17 4 12"/>
       </svg>
     </div>
- 
+
     <p class="confirm-eyebrow fade-up delay-1">Enquiry Received</p>
- 
+
     <h1 class="confirm-title fade-up delay-2">
       We've got your<br><em>enquiry.</em>
     </h1>
- 
+
     <div class="brass-rule"></div>
- 
+
     <p class="confirm-body fade-up delay-3">
       Every event we're part of matters deeply to us — and yours is no exception. We know how much thought goes into making it unforgettable, and we're genuinely <strong>thrilled you chose Slay</strong> to be part of it. Abira will be in touch personally with everything you need.
     </p>
- 
+
     <!-- 24hr badge -->
     <div class="hour-badge fade-up delay-4">
       <div class="hour-badge-num">24</div>
       <div class="hour-badge-text">Hours or less<br>to your proposal</div>
     </div>
- 
+
     <!-- Instagram CTA -->
     <div class="fade-up delay-5">
       <p style="font-size:11px;font-weight:300;letter-spacing:0.1em;color:var(--mist);margin-bottom:16px;">
@@ -317,70 +317,77 @@ a{text-decoration:none;color:inherit;}
         <span class="ig-cta-text">@slayentertainmentco</span>
       </a>
     </div>
- 
+
+    <!-- Back to site -->
+    <p class="fade-up delay-6" style="margin-top:32px;">
+      <a href="/" style="font-size:11px;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;color:var(--mist);border-bottom:1px solid rgba(138,138,154,0.3);padding-bottom:2px;transition:color .2s;">
+        ← Back to Slay Entertainment
+      </a>
+    </p>
+
   </div>
 </section>
- 
+
 <!-- PACKAGES PREVIEW -->
 <section class="packages-section">
- 
+
   <p class="section-eyebrow">What We Do</p>
   <h2 class="section-title">Every Event Has Its Spectacle</h2>
   <p class="section-sub">Six signature packages — each choreographed, costumed, and directed by Abira</p>
- 
+
   <div class="pkg-grid">
- 
+
     <div class="pkg-card">
       <span class="pkg-num">01</span>
       <div class="pkg-name">Neon Nightlife</div>
       <span class="pkg-tag">UV · LED · Podium · Club</span>
       <p class="pkg-desc">High-energy UV and LED performance that owns the dancefloor and holds a crowd from first set to last call. Club residencies, venue entertainment, weekly bookings.</p>
     </div>
- 
+
     <div class="pkg-card">
       <span class="pkg-num">02</span>
       <div class="pkg-name">Vegas Showgirl</div>
       <span class="pkg-tag">Rhinestone · Feather Fans · Gala</span>
       <p class="pkg-desc">Gold sequin glamour and ostrich feather fan spectacle for galas, award nights, and high-end hospitality that commands the room.</p>
     </div>
- 
+
     <div class="pkg-card">
       <span class="pkg-num">03</span>
       <div class="pkg-name">Race Day</div>
       <span class="pkg-tag">Motorsport · Ducati · Brand Activation</span>
       <p class="pkg-desc">Costumed choreographed performance with Ducati static display for motorsport events, dealership launches, and automotive brand activations.</p>
     </div>
- 
+
     <div class="pkg-card">
       <span class="pkg-num">04</span>
       <div class="pkg-name">Carnival / Cirque</div>
       <span class="pkg-tag">Roving · Theatre · Events</span>
       <p class="pkg-desc">Theatrical roving entertainment that keeps energy moving across the whole venue. Product launches, end-of-year events, activations.</p>
     </div>
- 
+
     <div class="pkg-card">
       <span class="pkg-num">05</span>
       <div class="pkg-name">Burlesque & Glamour</div>
       <span class="pkg-tag">Adults Only · Private · Hens</span>
       <p class="pkg-desc">Choreographed burlesque featuring feather fans, opera gloves, and signature reveal moments. Hens parties, yacht events, private functions.</p>
     </div>
- 
+
     <div class="pkg-card">
       <span class="pkg-num">06</span>
       <div class="pkg-name">Fan Dancers</div>
       <span class="pkg-tag">Silk Fans · Festival · Outdoor</span>
       <p class="pkg-desc">Psychedelic silk fan artistry for festival stages, rooftops, pool parties, and summer brand activations that want energy without the nightclub aesthetic.</p>
     </div>
- 
+
   </div>
- 
+
   <div class="packages-cta-wrap">
     <a href="/packages" class="btn-packages">View Full Packages</a>
     <a href="/#enquiry" class="btn-enquiry">Submit Another Enquiry</a>
   </div>
- 
+
 </section>
- 
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-logo"><span>SLAY</span> ENTERTAINMENT<small>Boutique Performance Agency</small></div>
@@ -394,6 +401,6 @@ a{text-decoration:none;color:inherit;}
     <div>Conceived and developed by <a href="https://www.linkedin.com/in/nicolakharvey/" target="_blank" rel="noopener">Nicola Harvey</a> &nbsp;·&nbsp; AI-assisted design &nbsp;·&nbsp; Development</div>
   </div>
 </footer>
- 
+
 </body>
 </html>
