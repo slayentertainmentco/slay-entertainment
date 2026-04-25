@@ -682,7 +682,8 @@ a{text-decoration:none;color:inherit;}
     <div class="form-sub" style="text-align:center;max-width:100%;">Tell us about your event and we'll come back with a tailored proposal within 24 hours. No commitment required.</div>
     <div class="rule-full"></div>
 
-    <form name="enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <form name="enquiry" method="POST" data-netlify="true" 
+  data-netlify-honeypot="bot-field" action="/thank-you">
       <input type="hidden" name="form-name" value="enquiry">
       <p style="display:none;">
         <label>Don't fill this out: <input name="bot-field"></label>
