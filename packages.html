@@ -88,15 +88,41 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 
 /* ── LAUNCH BANNER ── */
 .launch-banner{
-  background:linear-gradient(135deg,rgba(240,0,128,0.12),rgba(168,134,74,0.08));
-  border-top:1px solid rgba(240,0,128,0.2);
-  border-bottom:1px solid rgba(240,0,128,0.2);
-  padding:20px 24px;text-align:center;
+  background:linear-gradient(135deg,rgba(240,0,128,0.14) 0%,rgba(12,12,20,0.98) 50%,rgba(168,134,74,0.1) 100%);
+  border-top:2px solid var(--magenta);
+  border-bottom:1px solid rgba(168,134,74,0.2);
+  padding:56px 24px;text-align:center;
+  position:relative;overflow:hidden;
 }
-.launch-banner-inner{max-width:700px;margin:0 auto;}
-.launch-banner-title{font-size:11px;font-weight:900;letter-spacing:0.35em;text-transform:uppercase;color:var(--magenta);margin-bottom:6px;}
-.launch-banner-body{font-size:13px;font-weight:300;color:var(--chrome);line-height:1.6;}
-.launch-banner-body strong{color:var(--white);font-weight:600;}
+.launch-banner::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(240,0,128,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(240,0,128,0.04) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;
+}
+.launch-banner-inner{max-width:680px;margin:0 auto;position:relative;z-index:2;}
+.launch-banner-kicker{
+  font-size:9px;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:16px;
+}
+.launch-banner-heading{
+  font-family:"Cormorant Garamond",serif;font-weight:700;
+  font-size:clamp(48px,7vw,80px);letter-spacing:0.04em;line-height:1;
+  color:var(--white);margin-bottom:20px;
+}
+.launch-banner-heading em{color:var(--magenta);font-style:italic;}
+.launch-banner-sub{
+  font-size:14px;font-weight:300;line-height:1.8;
+  color:var(--chrome);max-width:500px;margin:0 auto 32px;
+}
+.launch-banner-sub strong{color:var(--white);font-weight:600;}
+.launch-banner-btn{
+  display:inline-block;
+  font-size:10px;font-weight:900;letter-spacing:0.4em;text-transform:uppercase;
+  background:var(--magenta);color:#fff;padding:18px 44px;
+  box-shadow:0 4px 32px rgba(240,0,128,0.4);
+  transition:all .25s;
+}
+.launch-banner-btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(240,0,128,0.6);}
 
 /* ── PACKAGE FILTER ── */
 .filter-wrap{
@@ -316,7 +342,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
       Performance that<br><em>defines</em> your event
     </h1>
     <p class="hero-sub fade-up d3">
-      Every package is choreographed, costumed, and personally directed by Abira — 20+ years of professional training behind every act we put on stage.
+      Every package is choreographed, costumed, and personally directed by Abira — 20+ years of professional training behind every performance we deliver.
     </p>
     <div class="hero-stats fade-up d4">
       <div class="hero-stat"><div class="hero-stat-val">20+</div><div class="hero-stat-label">Years Training</div></div>
@@ -330,11 +356,13 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 <!-- LAUNCH BANNER -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <div class="launch-banner-title">Introductory Launch Pricing — Available Now</div>
-    <div class="launch-banner-body">
-      We're offering <strong>15% off all packages</strong> for a limited number of early bookings as we launch Slay Entertainment in Sydney. 
-      Lock in launch pricing now — rates return to standard once initial availability is filled.
+    <div class="launch-banner-kicker">Introductory Offer · Limited Availability</div>
+    <div class="launch-banner-heading"><em>15% Off</em> All Packages</div>
+    <div class="launch-banner-sub">
+      To celebrate the launch of Slay Entertainment, we're offering <strong>15% off every package</strong> for a limited number of early bookings across Sydney, Brisbane, Sunshine Coast and Bali.
+      <br>Lock in launch pricing now — rates return to standard once initial availability is filled.
     </div>
+    <a href="/#enquiry" class="launch-banner-btn">Claim Launch Pricing →</a>
   </div>
 </div>
 
