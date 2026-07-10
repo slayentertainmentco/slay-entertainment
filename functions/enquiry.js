@@ -24,6 +24,17 @@ function redirect(location) {
   return new Response(null, { status: 303, headers: { Location: location } });
 }
 
+// Escape a user-supplied form value before interpolating it into email HTML
+// (closes an HTML-injection hole in the internal notification email).
+function escapeHtml(v) {
+  return String(v ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
   const BREVO_API_KEY = env.BREVO_API_KEY;
@@ -117,7 +128,7 @@ export async function onRequestPost(context) {
       ["Event type", eventType], ["Event date", eventDate],
       ["Flexible date", flexibleDate], ["Package", pkg], ["Message", message],
     ].filter(([, v]) => v)
-     .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-weight:600">${k}</td><td>${v}</td></tr>`)
+     .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-weight:600">${k}</td><td>${escapeHtml(v)}</td></tr>`)
      .join("");
 
     const notifyRes = await brevo("smtp/email", {
