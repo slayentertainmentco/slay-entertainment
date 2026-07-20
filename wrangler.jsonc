@@ -1,4 +1,14 @@
 {
+  // ACCOUNT SAFETY: Pages configs do NOT support "account_id" (wrangler rejects
+  // it outright), so the usual pin is unavailable here. Always deploy with
+  // ./deploy.sh, which loads the right account's credentials and refuses to run
+  // against any other. A bare `wrangler pages deploy` uses whichever login is
+  // active, which drifts between sessions, and a wrong account does not fail:
+  // it creates a duplicate project and reports success.
+  //
+  // NOTE: this file IS publicly served, because pages_build_output_dir is "."
+  // and Pages has no .assetsignore support (tested 21 Jul 2026, it was ignored).
+  // Keep account IDs and anything else identifying OUT of this file.
   "name": "slay-entertainment",
   "compatibility_date": "2026-07-01",
   "pages_build_output_dir": "."

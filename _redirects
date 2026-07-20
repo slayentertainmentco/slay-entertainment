@@ -1,0 +1,13 @@
+# pages_build_output_dir is "." so every file in the repo root is web-reachable.
+# .assetsignore does NOT work for Pages (tested 21 Jul 2026, the file was
+# uploaded regardless), so repo files are blocked here instead.
+# https://slayentertainment.co/wrangler.jsonc was serving the real config before
+# this existed. There is no 404.html in this project, so these send visitors to
+# the homepage rather than to a page that does not exist.
+# Verify any new rule by fetching the path and reading the BODY, because a
+# status code alone proves nothing here.
+/wrangler.jsonc            /  302
+/deploy.sh                 /  302
+/.assetsignore             /  302
+/scripts/*                 /  302
+/README.md                 /  302
