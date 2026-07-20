@@ -5,6 +5,8 @@
 // (3) emails the internal team a notification (Netlify Forms used to do this),
 // then redirects the browser to /thank-you.
 
+import { scoreSubmission } from "./_spam-score.js";
+
 const CONFIRMATION_TEMPLATE_ID = 2;
 const NEW_ENQUIRY_LIST_ID = 2; // "Enquiries - New"
 
@@ -85,8 +87,16 @@ export async function onRequestPost(context) {
       body: JSON.stringify(body),
     });
 
+  // Score the submission. A honeypot alone stopped nothing on 20 Jul 2026: the
+  // bot skipped the hidden field, landed in the Wedding list, and got an
+  // auto-reply that hard bounced. When this scores as junk we skip the two
+  // actions that actually cost something, writing to Brevo and emailing the
+  // sender, but the team notification below still goes out so a scoring
+  // mistake can never lose a real booking.
+  const spam = scoreSubmission({ name, email, phone, eventType, message });
+
   // 1. Create or update the contact in Brevo.
-  try {
+  if (!spam.isSpam) try {
     const contactRes = await brevo("contacts", {
       email,
       firstName,
@@ -110,7 +120,9 @@ export async function onRequestPost(context) {
   }
 
   // 2. Send the enquirer a confirmation email (transactional template).
-  try {
+  // Skipped for junk: these addresses are routinely fake and the bounces are
+  // what damage the sending reputation the real enquiries depend on.
+  if (!spam.isSpam) try {
     const confRes = await brevo("smtp/email", {
       to: [{ email, name }],
       templateId: CONFIRMATION_TEMPLATE_ID,
@@ -131,12 +143,23 @@ export async function onRequestPost(context) {
      .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-weight:600">${k}</td><td>${escapeHtml(v)}</td></tr>`)
      .join("");
 
+    // Junk still reaches the team, flagged, so nothing is ever silently
+    // dropped. The subject prefix makes it filterable in one rule.
+    const spamNote = spam.isSpam
+      ? `<p style="background:#ffe8e8;padding:10px;border-radius:6px">
+           <b>Flagged as likely spam</b> (score ${spam.score}).
+           No contact was added to Brevo and no confirmation email was sent.<br>
+           Signals: ${escapeHtml(spam.reasons.join("; "))}<br>
+           If this is a real enquiry, reply to it directly and add them by hand.
+         </p>`
+      : "";
+
     const notifyRes = await brevo("smtp/email", {
       sender: { email: NOTIFY_FROM, name: "Slay Entertainment site" },
       to: [{ email: NOTIFY_TO }],
       replyTo: { email, name },
-      subject: `New enquiry — ${name || email}${eventType ? " · " + eventType : ""}`,
-      htmlContent: `<h2>New enquiry from slayentertainment.co</h2><table>${rows}</table>`,
+      subject: `${spam.isSpam ? "[likely spam] " : ""}New enquiry — ${name || email}${eventType ? " · " + eventType : ""}`,
+      htmlContent: `<h2>New enquiry from slayentertainment.co</h2>${spamNote}<table>${rows}</table>`,
     });
     if (!notifyRes.ok) console.error("Brevo notify error:", await notifyRes.text());
   } catch (err) {
