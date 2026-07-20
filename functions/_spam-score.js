@@ -33,12 +33,12 @@ function urlCount(text) {
   return (text.match(/https?:\/\/|www\.[a-z0-9-]+\.[a-z]{2,}/gi) || []).length;
 }
 
-// Cyrillic, Greek or CJK in a message to an Australian entertainment agency is
-// a strong signal on its own. Kept separate from the phrase list so a genuine
-// enquiry written in another language scores once, not repeatedly.
-function hasNonLatinScript(text) {
-  return /[Ѐ-ӿͰ-Ͽ一-鿿぀-ヿ]/.test(text);
-}
+// A non-Latin script rule used to live here and was REMOVED on 21 Jul 2026.
+// It scored zero against the real spam, which trips six other rules without it,
+// and it pushed a plausible enquiry (a Chinese-speaking couple booking a
+// wedding, with a link to their venue) to exactly the spam threshold. A rule
+// that catches nothing real and penalises customers for the language they
+// write in is all cost. Australia is multilingual; the form is not English-only.
 
 /**
  * Score a submission. Higher means more likely to be junk.
@@ -69,11 +69,6 @@ export function scoreSubmission(fields) {
   if (urls >= 1) {
     score += Math.min(urls * 2, 4);
     reasons.push(`${urls} link(s) in the message`);
-  }
-
-  if (hasNonLatinScript(text)) {
-    score += 3;
-    reasons.push("non-Latin script in the message");
   }
 
   // A real enquirer picks their event from the dropdown and usually leaves a

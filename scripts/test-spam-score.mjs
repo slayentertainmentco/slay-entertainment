@@ -81,6 +81,21 @@ We only use chat for communication.`,
     },
   },
   {
+    // Regression guard. An earlier non-Latin-script rule pushed this exact
+    // shape to the spam threshold. The rule caught nothing real and was
+    // removed on 21 Jul 2026. Australia is multilingual; keep this passing.
+    label: "Legit wedding enquiry written in Chinese, with a venue link",
+    expectSpam: false,
+    fields: {
+      name: "陈慧",
+      email: "huichen@gmail.com",
+      phone: "",
+      eventType: "",
+      message:
+        "你好，我们想为婚礼预订舞者。场地在 https://example-venue.com.au 谢谢！",
+    },
+  },
+  {
     label: "Legit brand activation, mentions finding the site online",
     expectSpam: false,
     fields: {
