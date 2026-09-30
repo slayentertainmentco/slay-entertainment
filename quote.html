@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-<title>Slay Entertainment — Quoting Tool</title>
+<title>Slay Entertainment, Quoting Tool</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -159,7 +160,7 @@ a{text-decoration:none;color:inherit;}
 <div class="page">
 
   <h1 class="page-title"><span>Quote</span> Calculator</h1>
-  <p class="page-sub">Internal use only — Abira Harvey · Slay Entertainment · Sydney</p>
+  <p class="page-sub">Internal use only, Abira Harvey · Slay Entertainment · Sydney</p>
 
   <!-- BOOKING DETAILS -->
   <p class="section-label">Booking details</p>
@@ -185,9 +186,9 @@ a{text-decoration:none;color:inherit;}
     <div class="input-block">
       <label>Pricing tier</label>
       <select id="tier">
-        <option value="floor">Floor — launch / new client</option>
-        <option value="mid" selected>Mid — standard market</option>
-        <option value="premium">Premium — featured / corporate</option>
+        <option value="floor">Floor, launch / new client</option>
+        <option value="mid" selected>Mid, standard market</option>
+        <option value="premium">Premium, featured / corporate</option>
       </select>
     </div>
     <div class="input-block">
@@ -254,7 +255,7 @@ a{text-decoration:none;color:inherit;}
   <div class="rule"></div>
 
   <!-- TIER BADGE -->
-  <div id="tier_badge" class="tier-badge tier-mid">Mid — standard market rate</div>
+  <div id="tier_badge" class="tier-badge tier-mid">Mid, standard market rate</div>
 
   <!-- BREAKDOWN -->
   <p class="section-label">Cost breakdown</p>
@@ -312,9 +313,9 @@ a{text-decoration:none;color:inherit;}
 
 <script>
 const TIER_CONFIG = {
-  floor:   { mult: 1.0,   label: 'Floor — launch / new client deal',         cls: 'tier-floor'   },
-  mid:     { mult: 1.15,  label: 'Mid — standard market rate',                cls: 'tier-mid'     },
-  premium: { mult: 1.35,  label: 'Premium — featured artist / bespoke corporate', cls: 'tier-premium' }
+  floor:   { mult: 1.0,   label: 'Floor, launch / new client deal',         cls: 'tier-floor'   },
+  mid:     { mult: 1.15,  label: 'Mid, standard market rate',                cls: 'tier-mid'     },
+  premium: { mult: 1.35,  label: 'Premium, featured artist / bespoke corporate', cls: 'tier-premium' }
 };
 
 const PKG_COSTUME = {
@@ -377,7 +378,7 @@ function calc() {
 
   let html = '';
   html += brow(`Talent · ${p} performer${p>1?'s':''} × ${h}hrs × ${fmt(effectiveRate)}/hr`, talentCost);
-  html += brow(`Costume amortisation · ${p} × ${fmt(costume)}`, costumeCost, `${pkg === 'standard' ? 'Neon / Carnival / Fan' : pkg === 'vegas' ? 'Vegas Showgirl — feather fans, headpieces' : pkg === 'burlesque' ? 'Burlesque — fans, gloves, corset' : 'Race Day — branded costume, Ducati styling'}`);
+  html += brow(`Costume amortisation · ${p} × ${fmt(costume)}`, costumeCost, `${pkg === 'standard' ? 'Neon / Carnival / Fan' : pkg === 'vegas' ? 'Vegas Showgirl, feather fans, headpieces' : pkg === 'burlesque' ? 'Burlesque, fans, gloves, corset' : 'Race Day, branded costume, Ducati styling'}`);
   if (choreo)    html += brow('Custom choreography', choreo, 'Bespoke 3–5 min set developed for brief');
   if (costumeCh) html += brow(`Costume change · ${p} × $50`, costumeCh);
   if (led)       html += brow(`LED props · ${p} × $80`, led, 'Pixel poi or LED fans');
