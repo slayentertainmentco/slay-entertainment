@@ -11,3 +11,8 @@
 /.assetsignore             /  302
 /scripts/*                 /  302
 /README.md                 /  302
+# Internal quoting tool: private to Abira. It is self-contained, so it opens from
+# the file on her own computer. Blocked here so the pricing is not public (brand sweep slay-07).
+/quote                     /  302
+/quote.html                /  302
+/quote/                    /  302
