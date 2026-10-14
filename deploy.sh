@@ -60,4 +60,4 @@ npx wrangler pages deploy . --project-name "$PROJECT" --branch main --commit-dir
 
 echo
 echo "Deployed. Now VERIFY THE CHANGED BEHAVIOUR, not just that the site loads:"
-echo "  node scripts/verify-live-spam-guard.mjs"
+echo "  node scripts/test-spam-score.mjs, then curl the changed pages on https://slayentertainment.co"
